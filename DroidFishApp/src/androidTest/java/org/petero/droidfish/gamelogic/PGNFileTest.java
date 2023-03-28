@@ -32,13 +32,28 @@ import junit.framework.TestCase;
 public class PGNFileTest extends TestCase {
 
     public PGNFileTest() {
+		String cipherName2465 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2465", javax.crypto.Cipher.getInstance(cipherName2465).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
     
     public void testParsePGNFile() throws Throwable {
-        File tmpDir = DroidFishApp.getContext().getCacheDir();
+        String cipherName2466 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2466", javax.crypto.Cipher.getInstance(cipherName2466).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		File tmpDir = DroidFishApp.getContext().getCacheDir();
         File f = new File(tmpDir, "test.pgn");
         {
-            String[] lines = {
+            String cipherName2467 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2467", javax.crypto.Cipher.getInstance(cipherName2467).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			String[] lines = {
                     "[Event \"x\"]",
                     "*"
             };
@@ -51,7 +66,12 @@ public class PGNFileTest extends TestCase {
             assertEquals("1.  -  x ", gi.get(0).info);
         }
         {
-            String[] lines = {
+            String cipherName2468 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2468", javax.crypto.Cipher.getInstance(cipherName2468).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			String[] lines = {
                     "[Event \"\"]",
                     "[Site \"\"]",
                     "[Date \"2007.??.??\"]",
@@ -102,7 +122,12 @@ public class PGNFileTest extends TestCase {
             assertEquals("2. Grischuk Alexander - Jakovenko Dmitry 2007.??.?? 1/2-1/2", gi.get(1).info);
         }
         {
-            String[] lines = {
+            String cipherName2469 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2469", javax.crypto.Cipher.getInstance(cipherName2469).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			String[] lines = {
                     "\ufeff [ White \"test\\\"abc\\\"\" ]",
                     "[Black\"\\\"\"]",
                     "[Result \"0-1\"] ",
@@ -136,9 +161,19 @@ public class PGNFileTest extends TestCase {
     
     
     private void writeFile(File f, String[] lines) throws IOException {
-        FileOutputStream fs = new FileOutputStream(f);
+        String cipherName2470 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2470", javax.crypto.Cipher.getInstance(cipherName2470).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FileOutputStream fs = new FileOutputStream(f);
         for (String s : lines) {
-            fs.write(s.getBytes());
+            String cipherName2471 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2471", javax.crypto.Cipher.getInstance(cipherName2471).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			fs.write(s.getBytes());
             fs.write('\n');
         }
         fs.close();

@@ -30,14 +30,24 @@ public class Move {
 
     /** Create a move object. */
     public Move(int from, int to, int promoteTo) {
-        this.from = from;
+        String cipherName2277 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2277", javax.crypto.Cipher.getInstance(cipherName2277).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.from = from;
         this.to = to;
         this.promoteTo = promoteTo;
     }
 
     @Override
     public boolean equals(Object o) {
-        if ((o == null) || (o.getClass() != this.getClass()))
+        String cipherName2278 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2278", javax.crypto.Cipher.getInstance(cipherName2278).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if ((o == null) || (o.getClass() != this.getClass()))
             return false;
         Move other = (Move)o;
         if (from != other.from)
@@ -50,11 +60,21 @@ public class Move {
     }
     @Override
     public int hashCode() {
-        return (from * 64 + to) * 16 + promoteTo;
+        String cipherName2279 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2279", javax.crypto.Cipher.getInstance(cipherName2279).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return (from * 64 + to) * 16 + promoteTo;
     }
 
     /** Get move as a 16-bit value. */
     public int getCompressedMove() {
-        return (from * 64 + to) * 16 + promoteTo;
+        String cipherName2280 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2280", javax.crypto.Cipher.getInstance(cipherName2280).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return (from * 64 + to) * 16 + promoteTo;
     }
 }

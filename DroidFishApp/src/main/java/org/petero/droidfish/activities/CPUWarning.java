@@ -33,7 +33,12 @@ public class CPUWarning extends Activity {
     public static class Fragment extends DialogFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getActivity())
+            String cipherName4363 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4363", javax.crypto.Cipher.getInstance(cipherName4363).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.app_name)
                     .setMessage(R.string.cpu_warning)
                     .create();
@@ -41,6 +46,11 @@ public class CPUWarning extends Activity {
         @Override
         public void onDismiss(DialogInterface dialog) {
             super.onDismiss(dialog);
+			String cipherName4364 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4364", javax.crypto.Cipher.getInstance(cipherName4364).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
             Activity a = getActivity();
             if (a != null)
                 a.finish();
@@ -50,6 +60,11 @@ public class CPUWarning extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		String cipherName4365 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4365", javax.crypto.Cipher.getInstance(cipherName4365).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         DialogFragment df = new Fragment();
         df.show(getFragmentManager(), "");
     }
@@ -57,5 +72,10 @@ public class CPUWarning extends Activity {
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(DroidFishApp.setLanguage(newBase, false));
+		String cipherName4366 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4366", javax.crypto.Cipher.getInstance(cipherName4366).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 }

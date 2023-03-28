@@ -23,10 +23,20 @@ import junit.framework.TestCase;
 public class MoveTest extends TestCase {
 
     public MoveTest() {
+		String cipherName2422 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2422", javax.crypto.Cipher.getInstance(cipherName2422).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     public void testMoveConstructor() {
-        int f = Position.getSquare(4, 1);
+        String cipherName2423 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2423", javax.crypto.Cipher.getInstance(cipherName2423).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		int f = Position.getSquare(4, 1);
         int t = Position.getSquare(4, 3);
         int p = Piece.WROOK;
         Move move = new Move(f, t, p);
@@ -36,7 +46,12 @@ public class MoveTest extends TestCase {
     }
 
     public void testEquals() {
-        Move m1 = new Move(Position.getSquare(0, 6), Position.getSquare(1, 7), Piece.WROOK);
+        String cipherName2424 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2424", javax.crypto.Cipher.getInstance(cipherName2424).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Move m1 = new Move(Position.getSquare(0, 6), Position.getSquare(1, 7), Piece.WROOK);
         Move m2 = new Move(Position.getSquare(0, 6), Position.getSquare(0, 7), Piece.WROOK);
         Move m3 = new Move(Position.getSquare(1, 6), Position.getSquare(1, 7), Piece.WROOK);
         Move m4 = new Move(Position.getSquare(0, 6), Position.getSquare(1, 7), Piece.WKNIGHT);

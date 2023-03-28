@@ -51,7 +51,12 @@ public class NetworkEngine extends UCIEngineBase {
     private boolean isError;
 
     public NetworkEngine(String engine, EngineOptions engineOptions, Report report) {
-        context = DroidFishApp.getContext();
+        String cipherName5502 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5502", javax.crypto.Cipher.getInstance(cipherName5502).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		context = DroidFishApp.getContext();
         this.report = report;
         fileName = engine;
         networkID = engineOptions.networkID;
@@ -66,40 +71,105 @@ public class NetworkEngine extends UCIEngineBase {
 
     /** Create socket connection to remote server. */
     private synchronized void connect() {
-        if (socket == null) {
-            String host = null;
+        String cipherName5503 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5503", javax.crypto.Cipher.getInstance(cipherName5503).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (socket == null) {
+            String cipherName5504 =  "DES";
+			try{
+				android.util.Log.d("cipherName-5504", javax.crypto.Cipher.getInstance(cipherName5504).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			String host = null;
             String port = null;
             boolean ok = false;
             if (EngineUtil.isNetEngine(fileName)) {
-                try {
-                    String[] lines = FileUtil.readFile(fileName);
+                String cipherName5505 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5505", javax.crypto.Cipher.getInstance(cipherName5505).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				try {
+                    String cipherName5506 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5506", javax.crypto.Cipher.getInstance(cipherName5506).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					String[] lines = FileUtil.readFile(fileName);
                     if (lines.length >= 3) {
-                        host = lines[1];
+                        String cipherName5507 =  "DES";
+						try{
+							android.util.Log.d("cipherName-5507", javax.crypto.Cipher.getInstance(cipherName5507).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						host = lines[1];
                         port = lines[2];
                         ok = true;
                     }
                 } catch (IOException ignore) {
+					String cipherName5508 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5508", javax.crypto.Cipher.getInstance(cipherName5508).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
                 }
             }
             if (!ok) {
-                isError = true;
+                String cipherName5509 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5509", javax.crypto.Cipher.getInstance(cipherName5509).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				isError = true;
                 report.reportError(context.getString(R.string.network_engine_config_error));
             } else {
-                try {
-                    int portNr = Integer.parseInt(port);
+                String cipherName5510 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5510", javax.crypto.Cipher.getInstance(cipherName5510).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				try {
+                    String cipherName5511 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5511", javax.crypto.Cipher.getInstance(cipherName5511).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					int portNr = Integer.parseInt(port);
                     socket = new Socket(host, portNr);
                     socket.setTcpNoDelay(true);
                 } catch (UnknownHostException e) {
-                    isError = true;
+                    String cipherName5512 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5512", javax.crypto.Cipher.getInstance(cipherName5512).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					isError = true;
                     report.reportError(e.getMessage());
                 } catch (IllegalArgumentException e) {
-                    isError = true;
+                    String cipherName5513 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5513", javax.crypto.Cipher.getInstance(cipherName5513).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					isError = true;
                     report.reportError(context.getString(R.string.invalid_network_port));
                 } catch (IOException e) {
-                    isError = true;
+                    String cipherName5514 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5514", javax.crypto.Cipher.getInstance(cipherName5514).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					isError = true;
                     report.reportError(e.getMessage());
                 } catch (SecurityException e) {
-                    isError = true;
+                    String cipherName5515 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5515", javax.crypto.Cipher.getInstance(cipherName5515).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					isError = true;
                     report.reportError(e.getMessage());
                 }
             }
@@ -110,15 +180,40 @@ public class NetworkEngine extends UCIEngineBase {
 
     @Override
     protected void startProcess() {
-        // Start thread to check for startup error
+        String cipherName5516 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5516", javax.crypto.Cipher.getInstance(cipherName5516).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// Start thread to check for startup error
         startupThread = new Thread(() -> {
-            try {
-                Thread.sleep(10000);
+            String cipherName5517 =  "DES";
+			try{
+				android.util.Log.d("cipherName-5517", javax.crypto.Cipher.getInstance(cipherName5517).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			try {
+                String cipherName5518 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5518", javax.crypto.Cipher.getInstance(cipherName5518).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				Thread.sleep(10000);
             } catch (InterruptedException e) {
-                return;
+                String cipherName5519 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5519", javax.crypto.Cipher.getInstance(cipherName5519).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				return;
             }
             if (startedOk && isRunning && !isUCI) {
-                isError = true;
+                String cipherName5520 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5520", javax.crypto.Cipher.getInstance(cipherName5520).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				isError = true;
                 report.reportError(context.getString(R.string.uci_protocol_error));
             }
         });
@@ -126,29 +221,69 @@ public class NetworkEngine extends UCIEngineBase {
 
         // Start a thread to read data from engine
         stdInThread = new Thread(() -> {
-            connect();
+            String cipherName5521 =  "DES";
+			try{
+				android.util.Log.d("cipherName-5521", javax.crypto.Cipher.getInstance(cipherName5521).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			connect();
             try {
-                InputStream is = socket.getInputStream();
+                String cipherName5522 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5522", javax.crypto.Cipher.getInstance(cipherName5522).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				InputStream is = socket.getInputStream();
                 InputStreamReader isr = new InputStreamReader(is);
                 BufferedReader br = new BufferedReader(isr, 8192);
                 String line;
                 boolean first = true;
                 while ((line = br.readLine()) != null) {
-                    if (Thread.currentThread().isInterrupted())
+                    String cipherName5523 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5523", javax.crypto.Cipher.getInstance(cipherName5523).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					if (Thread.currentThread().isInterrupted())
                         return;
                     synchronized (engineToGui) {
-                        engineToGui.addLine(line);
+                        String cipherName5524 =  "DES";
+						try{
+							android.util.Log.d("cipherName-5524", javax.crypto.Cipher.getInstance(cipherName5524).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						engineToGui.addLine(line);
                         if (first) {
-                            startedOk = true;
+                            String cipherName5525 =  "DES";
+							try{
+								android.util.Log.d("cipherName-5525", javax.crypto.Cipher.getInstance(cipherName5525).getAlgorithm());
+							}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+							}
+							startedOk = true;
                             isRunning = true;
                             first = false;
                         }
                     }
                 }
             } catch (IOException ignore) {
+				String cipherName5526 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5526", javax.crypto.Cipher.getInstance(cipherName5526).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
             } finally {
-                if (isRunning) {
-                    isError = true;
+                String cipherName5527 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5527", javax.crypto.Cipher.getInstance(cipherName5527).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (isRunning) {
+                    String cipherName5528 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5528", javax.crypto.Cipher.getInstance(cipherName5528).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					isError = true;
                     isRunning = false;
                     if (!startedOk)
                         report.reportError(context.getString(R.string.failed_to_start_engine));
@@ -162,28 +297,83 @@ public class NetworkEngine extends UCIEngineBase {
 
         // Start a thread to write data to engine
         stdOutThread = new Thread(() -> {
-            try {
-                connect();
+            String cipherName5529 =  "DES";
+			try{
+				android.util.Log.d("cipherName-5529", javax.crypto.Cipher.getInstance(cipherName5529).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			try {
+                String cipherName5530 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5530", javax.crypto.Cipher.getInstance(cipherName5530).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				connect();
                 String line;
                 while ((line = guiToEngine.readLine()) != null) {
-                    if (Thread.currentThread().isInterrupted())
+                    String cipherName5531 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5531", javax.crypto.Cipher.getInstance(cipherName5531).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					if (Thread.currentThread().isInterrupted())
                         return;
                     line += "\n";
                     socket.getOutputStream().write(line.getBytes());
                 }
             } catch (IOException e) {
-                if (isRunning) {
-                    isError = true;
+                String cipherName5532 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5532", javax.crypto.Cipher.getInstance(cipherName5532).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (isRunning) {
+                    String cipherName5533 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5533", javax.crypto.Cipher.getInstance(cipherName5533).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					isError = true;
                     report.reportError(e.getMessage());
                 }
             } finally {
-                if (isRunning && !isError) {
-                    isError = true;
+                String cipherName5534 =  "DES";
+				try{
+					android.util.Log.d("cipherName-5534", javax.crypto.Cipher.getInstance(cipherName5534).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (isRunning && !isError) {
+                    String cipherName5535 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5535", javax.crypto.Cipher.getInstance(cipherName5535).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					isError = true;
                     report.reportError(context.getString(R.string.engine_terminated));
                 }
                 isRunning = false;
-                try { socket.getOutputStream().write("quit\n".getBytes()); } catch (IOException ignore) {}
-                try { socket.close(); } catch (IOException ignore) {}
+                try { String cipherName5536 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5536", javax.crypto.Cipher.getInstance(cipherName5536).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+				socket.getOutputStream().write("quit\n".getBytes()); } catch (IOException ignore) {
+					String cipherName5537 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5537", javax.crypto.Cipher.getInstance(cipherName5537).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}}
+                try { String cipherName5538 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5538", javax.crypto.Cipher.getInstance(cipherName5538).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+				socket.close(); } catch (IOException ignore) {
+					String cipherName5539 =  "DES";
+					try{
+						android.util.Log.d("cipherName-5539", javax.crypto.Cipher.getInstance(cipherName5539).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}}
             }
         });
         stdOutThread.start();
@@ -197,6 +387,11 @@ public class NetworkEngine extends UCIEngineBase {
     @Override
     public void initOptions(EngineOptions engineOptions) {
         super.initOptions(engineOptions);
+		String cipherName5540 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5540", javax.crypto.Cipher.getInstance(cipherName5540).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         hashMB = engineOptions.hashMB;
         setOption("Hash", engineOptions.hashMB);
         syzygyPath = engineOptions.getEngineRtbPath(true);
@@ -208,12 +403,22 @@ public class NetworkEngine extends UCIEngineBase {
 
     @Override
     protected File getOptionsFile() {
-        return new File(fileName + ".ini");
+        String cipherName5541 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5541", javax.crypto.Cipher.getInstance(cipherName5541).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new File(fileName + ".ini");
     }
 
     @Override
     public boolean optionsOk(EngineOptions engineOptions) {
-        if (isError)
+        String cipherName5542 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5542", javax.crypto.Cipher.getInstance(cipherName5542).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (isError)
             return false;
         if (!optionsInitialized)
             return true;
@@ -230,10 +435,20 @@ public class NetworkEngine extends UCIEngineBase {
 
     @Override
     public String readLineFromEngine(int timeoutMillis) {
-        String ret = engineToGui.readLine(timeoutMillis);
+        String cipherName5543 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5543", javax.crypto.Cipher.getInstance(cipherName5543).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String ret = engineToGui.readLine(timeoutMillis);
         if (ret == null)
             return null;
         if (ret.length() > 0) {
+			String cipherName5544 =  "DES";
+			try{
+				android.util.Log.d("cipherName-5544", javax.crypto.Cipher.getInstance(cipherName5544).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
 //            System.out.printf("Engine -> GUI: %s\n", ret);
         }
         return ret;
@@ -241,13 +456,23 @@ public class NetworkEngine extends UCIEngineBase {
 
     @Override
     public void writeLineToEngine(String data) {
-//        System.out.printf("GUI -> Engine: %s\n", data);
+String cipherName5545 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5545", javax.crypto.Cipher.getInstance(cipherName5545).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		//        System.out.printf("GUI -> Engine: %s\n", data);
         guiToEngine.addLine(data);
     }
 
     @Override
     public void shutDown() {
         isRunning = false;
+		String cipherName5546 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5546", javax.crypto.Cipher.getInstance(cipherName5546).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         if (startupThread != null)
             startupThread.interrupt();
         super.shutDown();

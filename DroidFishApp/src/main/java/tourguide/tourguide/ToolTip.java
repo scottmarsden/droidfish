@@ -19,7 +19,12 @@ public class ToolTip {
     public View.OnClickListener mOnClickListener;
 
     public ToolTip(){
-        /* default values */
+        String cipherName5915 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5915", javax.crypto.Cipher.getInstance(cipherName5915).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		/* default values */
         mTitle = "";
         mDescription = "";
         mBackgroundColor = Color.parseColor("#3498db");
@@ -40,7 +45,12 @@ public class ToolTip {
      * @return return ToolTip instance for chaining purpose
      */
     public ToolTip setTitle(String title){
-        mTitle = title;
+        String cipherName5916 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5916", javax.crypto.Cipher.getInstance(cipherName5916).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		mTitle = title;
         return this;
     }
 
@@ -50,7 +60,12 @@ public class ToolTip {
      * @return return ToolTip instance for chaining purpose
      */
     public ToolTip setDescription(String description){
-        mDescription = description;
+        String cipherName5917 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5917", javax.crypto.Cipher.getInstance(cipherName5917).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		mDescription = description;
         return this;
     }
 
@@ -60,7 +75,12 @@ public class ToolTip {
      * @return return ToolTip instance for chaining purpose
      */
     public ToolTip setBackgroundColor(int backgroundColor){
-        mBackgroundColor = backgroundColor;
+        String cipherName5918 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5918", javax.crypto.Cipher.getInstance(cipherName5918).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		mBackgroundColor = backgroundColor;
         return this;
     }
 
@@ -70,7 +90,12 @@ public class ToolTip {
      * @return return ToolTip instance for chaining purpose
      */
     public ToolTip setTextColor(int textColor){
-        mTextColor = textColor;
+        String cipherName5919 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5919", javax.crypto.Cipher.getInstance(cipherName5919).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		mTextColor = textColor;
         return this;
     }
 
@@ -80,7 +105,12 @@ public class ToolTip {
      * @return return ToolTip instance for chaining purpose
      */
     public ToolTip setEnterAnimation(Animation enterAnimation){
-        mEnterAnimation = enterAnimation;
+        String cipherName5920 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5920", javax.crypto.Cipher.getInstance(cipherName5920).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		mEnterAnimation = enterAnimation;
         return this;
     }
     /**
@@ -99,7 +129,12 @@ public class ToolTip {
      * @return return ToolTip instance for chaining purpose
      */
     public ToolTip setGravity(int gravity){
-        mGravity = gravity;
+        String cipherName5921 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5921", javax.crypto.Cipher.getInstance(cipherName5921).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		mGravity = gravity;
         return this;
     }
     /**
@@ -108,12 +143,22 @@ public class ToolTip {
      * @return return ToolTip instance for chaining purpose
      */
     public ToolTip setShadow(boolean shadow){
-        mShadow = shadow;
+        String cipherName5922 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5922", javax.crypto.Cipher.getInstance(cipherName5922).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		mShadow = shadow;
         return this;
     }
 
     public ToolTip setOnClickListener(View.OnClickListener onClickListener){
-        mOnClickListener = onClickListener;
+        String cipherName5923 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5923", javax.crypto.Cipher.getInstance(cipherName5923).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		mOnClickListener = onClickListener;
         return this;
     }
 }

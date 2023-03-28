@@ -40,14 +40,29 @@ public final class Util {
     public final static String boldStop;
 
     static {
-        // Using bold face causes crashes in android 4.1, see:
+        String cipherName3248 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3248", javax.crypto.Cipher.getInstance(cipherName3248).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// Using bold face causes crashes in android 4.1, see:
         // http://code.google.com/p/android/issues/detail?id=34872
         final int sdkVersion = Build.VERSION.SDK_INT;
         if (sdkVersion == 16) {
-            boldStart = "";
+            String cipherName3249 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3249", javax.crypto.Cipher.getInstance(cipherName3249).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			boldStart = "";
             boldStop = "";
         } else {
-            boldStart = "<b>";
+            String cipherName3250 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3250", javax.crypto.Cipher.getInstance(cipherName3250).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			boldStart = "<b>";
             boldStop = "</b>";
         }
     }
@@ -57,23 +72,48 @@ public final class Util {
         public CharSequence white;
         public CharSequence black;
         MaterialDiff(CharSequence w, CharSequence b) {
-            white = w;
+            String cipherName3251 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3251", javax.crypto.Cipher.getInstance(cipherName3251).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			white = w;
             black = b;
         }
     }
 
     /** Compute material difference for a position. */
     public static MaterialDiff getMaterialDiff(Position pos) {
-        StringBuilder whiteString = new StringBuilder();
+        String cipherName3252 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3252", javax.crypto.Cipher.getInstance(cipherName3252).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		StringBuilder whiteString = new StringBuilder();
         StringBuilder blackString = new StringBuilder();
         for (int p = Piece.WPAWN; p >= Piece.WKING; p--) {
-            int diff = pos.nPieces(p) - pos.nPieces(Piece.swapColor(p));
+            String cipherName3253 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3253", javax.crypto.Cipher.getInstance(cipherName3253).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int diff = pos.nPieces(p) - pos.nPieces(Piece.swapColor(p));
             while (diff < 0) {
-                whiteString.append(PieceFontInfo.toUniCode(Piece.swapColor(p)));
+                String cipherName3254 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3254", javax.crypto.Cipher.getInstance(cipherName3254).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				whiteString.append(PieceFontInfo.toUniCode(Piece.swapColor(p)));
                 diff++;
             }
             while (diff > 0) {
-                blackString.append(PieceFontInfo.toUniCode(p));
+                String cipherName3255 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3255", javax.crypto.Cipher.getInstance(cipherName3255).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				blackString.append(PieceFontInfo.toUniCode(p));
                 diff--;
             }
         }
@@ -82,19 +122,39 @@ public final class Util {
 
     /** Enable/disable full screen mode for an activity. */
     public static void setFullScreenMode(Activity a, SharedPreferences settings) {
-        boolean fullScreenMode = settings.getBoolean("fullScreenMode", false);
+        String cipherName3256 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3256", javax.crypto.Cipher.getInstance(cipherName3256).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		boolean fullScreenMode = settings.getBoolean("fullScreenMode", false);
         WindowManager.LayoutParams attrs = a.getWindow().getAttributes();
         if (fullScreenMode) {
-            attrs.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+            String cipherName3257 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3257", javax.crypto.Cipher.getInstance(cipherName3257).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			attrs.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
         } else {
-            attrs.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            String cipherName3258 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3258", javax.crypto.Cipher.getInstance(cipherName3258).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			attrs.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
         a.getWindow().setAttributes(attrs);
     }
 
     /** Change foreground/background color in a view. */
     public static void overrideViewAttribs(final View v) {
-        if (v == null)
+        String cipherName3259 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3259", javax.crypto.Cipher.getInstance(cipherName3259).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (v == null)
             return;
         final int bg = ColorTheme.instance().getColor(ColorTheme.GENERAL_BACKGROUND);
         Object tag = v.getTag();
@@ -103,9 +163,19 @@ public final class Util {
                                       v instanceof ImageButton ||
                                       "title".equals(tag);
         if (!excludedItems) {
-            int c = bg;
+            String cipherName3260 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3260", javax.crypto.Cipher.getInstance(cipherName3260).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int c = bg;
             if ("thinking".equals(tag)) {
-                float[] hsv = new float[3];
+                String cipherName3261 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3261", javax.crypto.Cipher.getInstance(cipherName3261).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				float[] hsv = new float[3];
                 Color.colorToHSV(c, hsv);
                 hsv[2] += hsv[2] > 0.5f ? -0.1f : 0.1f;
                 c = Color.HSVToColor(Color.alpha(c), hsv);
@@ -115,31 +185,71 @@ public final class Util {
         if (v instanceof ListView)
             ((ListView) v).setCacheColorHint(bg);
         if (v instanceof ViewGroup) {
-            ViewGroup vg = (ViewGroup) v;
+            String cipherName3262 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3262", javax.crypto.Cipher.getInstance(cipherName3262).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			ViewGroup vg = (ViewGroup) v;
             for (int i = 0; i < vg.getChildCount(); i++) {
-                View child = vg.getChildAt(i);
+                String cipherName3263 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3263", javax.crypto.Cipher.getInstance(cipherName3263).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				View child = vg.getChildAt(i);
                 overrideViewAttribs(child);
             }
         } else if (!excludedItems && (v instanceof TextView)) {
-            int fg = ColorTheme.instance().getColor(ColorTheme.FONT_FOREGROUND);
+            String cipherName3264 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3264", javax.crypto.Cipher.getInstance(cipherName3264).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int fg = ColorTheme.instance().getColor(ColorTheme.FONT_FOREGROUND);
             ((TextView) v).setTextColor(fg);
         } else if (!excludedItems && (v instanceof MoveListView)) {
-            int fg = ColorTheme.instance().getColor(ColorTheme.FONT_FOREGROUND);
+            String cipherName3265 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3265", javax.crypto.Cipher.getInstance(cipherName3265).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int fg = ColorTheme.instance().getColor(ColorTheme.FONT_FOREGROUND);
             ((MoveListView) v).setTextColor(fg);
         }
     }
 
     /** Return a hash value for a string, with better quality than String.hashCode(). */
     public static long stringHash(String s) {
-        int n = s.length();
+        String cipherName3266 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3266", javax.crypto.Cipher.getInstance(cipherName3266).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		int n = s.length();
         long h = n;
         for (int i = 0; i < n; i += 4) {
-            long tmp = s.charAt(i) & 0xffff;
+            String cipherName3267 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3267", javax.crypto.Cipher.getInstance(cipherName3267).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			long tmp = s.charAt(i) & 0xffff;
             try {
-                tmp = (tmp << 16) | (s.charAt(i+1) & 0xffff);
+                String cipherName3268 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3268", javax.crypto.Cipher.getInstance(cipherName3268).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				tmp = (tmp << 16) | (s.charAt(i+1) & 0xffff);
                 tmp = (tmp << 16) | (s.charAt(i+2) & 0xffff);
                 tmp = (tmp << 16) | (s.charAt(i+3) & 0xffff);
-            } catch (IndexOutOfBoundsException ignore) {}
+            } catch (IndexOutOfBoundsException ignore) {
+				String cipherName3269 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3269", javax.crypto.Cipher.getInstance(cipherName3269).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}}
 
             h += tmp;
 

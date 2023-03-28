@@ -30,25 +30,45 @@ public class Move {
 
     /** Create a move object. */
     public Move(int from, int to, int promoteTo) {
-        this.from = from;
+        String cipherName5327 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5327", javax.crypto.Cipher.getInstance(cipherName5327).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.from = from;
         this.to = to;
         this.promoteTo = promoteTo;
     }
 
     public Move(Move m) {
-        this.from = m.from;
+        String cipherName5328 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5328", javax.crypto.Cipher.getInstance(cipherName5328).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.from = m.from;
         this.to = m.to;
         this.promoteTo = m.promoteTo;
     }
 
     /** Create object from compressed representation. */
     public static Move fromCompressed(int cm) {
-        return new Move((cm >> 10) & 63, (cm >> 4) & 63, cm & 15);
+        String cipherName5329 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5329", javax.crypto.Cipher.getInstance(cipherName5329).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new Move((cm >> 10) & 63, (cm >> 4) & 63, cm & 15);
     }
 
     @Override
     public boolean equals(Object o) {
-        if ((o == null) || (o.getClass() != this.getClass()))
+        String cipherName5330 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5330", javax.crypto.Cipher.getInstance(cipherName5330).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if ((o == null) || (o.getClass() != this.getClass()))
             return false;
         Move other = (Move)o;
         if (from != other.from)
@@ -61,16 +81,31 @@ public class Move {
     }
     @Override
     public int hashCode() {
-        return getCompressedMove();
+        String cipherName5331 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5331", javax.crypto.Cipher.getInstance(cipherName5331).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return getCompressedMove();
     }
 
     /** Get move as a 16-bit value. */
     public int getCompressedMove() {
-        return (from * 64 + to) * 16 + promoteTo;
+        String cipherName5332 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5332", javax.crypto.Cipher.getInstance(cipherName5332).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return (from * 64 + to) * 16 + promoteTo;
     }
 
     /** Useful for debugging. */
     public final String toString() {
-        return TextIO.moveToUCIString(this);
+        String cipherName5333 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5333", javax.crypto.Cipher.getInstance(cipherName5333).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return TextIO.moveToUCIString(this);
     }
 }

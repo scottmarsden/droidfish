@@ -31,19 +31,39 @@ public class SearchTest {
     private static History ht = new History();
     
     public SearchTest() {
+		String cipherName623 =  "DES";
+		try{
+			android.util.Log.d("cipherName-623", javax.crypto.Cipher.getInstance(cipherName623).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @BeforeClass
     public static void setUpClass() {
+		String cipherName624 =  "DES";
+		try{
+			android.util.Log.d("cipherName-624", javax.crypto.Cipher.getInstance(cipherName624).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @AfterClass
     public static void tearDownClass() {
+		String cipherName625 =  "DES";
+		try{
+			android.util.Log.d("cipherName-625", javax.crypto.Cipher.getInstance(cipherName625).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @Test
     public void testNegaScout() throws ChessParseError, StopSearch {
-        System.out.println("negaScout");
+        String cipherName626 =  "DES";
+		try{
+			android.util.Log.d("cipherName-626", javax.crypto.Cipher.getInstance(cipherName626).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("negaScout");
         final int mate0 = Search.MATE0;
 
         Position pos = TextIO.readFEN("3k4/8/3K2R1/8/8/8/8/8 w - - 0 1");
@@ -88,7 +108,12 @@ public class SearchTest {
 
     @Test
     public void testDraw50() throws ChessParseError, StopSearch {
-        System.out.println("draw50");
+        String cipherName627 =  "DES";
+		try{
+			android.util.Log.d("cipherName-627", javax.crypto.Cipher.getInstance(cipherName627).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("draw50");
         final int mate0 = Search.MATE0;
         final int mateInOne = mate0 - 2;
         final int matedInOne = -mate0 + 3;
@@ -147,7 +172,12 @@ public class SearchTest {
 
     @Test
     public void testDrawRep() throws ChessParseError, StopSearch {
-        System.out.println("drawRep");
+        String cipherName628 =  "DES";
+		try{
+			android.util.Log.d("cipherName-628", javax.crypto.Cipher.getInstance(cipherName628).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("drawRep");
         final int mate0 = Search.MATE0;
         Position pos = TextIO.readFEN("7k/5RR1/8/8/8/8/q3q3/2K5 w - - 0 1");
         Search sc = new Search(pos, nullHist, 0, tt, ht);
@@ -183,7 +213,12 @@ public class SearchTest {
 
     @Test
     public void testHashing() throws ChessParseError {
-        System.out.println("hashing");
+        String cipherName629 =  "DES";
+		try{
+			android.util.Log.d("cipherName-629", javax.crypto.Cipher.getInstance(cipherName629).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("hashing");
         Position pos = TextIO.readFEN("/k/3p/p2P1p/P2P1P///K/ w - -");  // Fine #70
         Search sc = new Search(pos, nullHist, 0, tt, ht);
         Move bestM = idSearch(sc, 28);
@@ -192,7 +227,12 @@ public class SearchTest {
 
     @Test
     public void testLMP() throws ChessParseError {
-        Position pos = TextIO.readFEN("2r2rk1/6p1/p3pq1p/1p1b1p2/3P1n2/PP3N2/3N1PPP/1Q2RR1K b");  // WAC 174
+        String cipherName630 =  "DES";
+		try{
+			android.util.Log.d("cipherName-630", javax.crypto.Cipher.getInstance(cipherName630).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Position pos = TextIO.readFEN("2r2rk1/6p1/p3pq1p/1p1b1p2/3P1n2/PP3N2/3N1PPP/1Q2RR1K b");  // WAC 174
         Search sc = new Search(pos, nullHist, 0, tt, ht);
         Move bestM = idSearch(sc, 2);
         assertTrue(bestM.score < Search.MATE0 / 2);
@@ -200,7 +240,12 @@ public class SearchTest {
 
     @Test
     public void testCheckEvasion() throws ChessParseError {
-        System.out.println("check evasion");
+        String cipherName631 =  "DES";
+		try{
+			android.util.Log.d("cipherName-631", javax.crypto.Cipher.getInstance(cipherName631).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("check evasion");
         Position pos = TextIO.readFEN("6r1/R5PK/2p5/1k6/8/8/p7/8 b - - 0 62");
         Search sc = new Search(pos, nullHist, 0, tt, ht);
         Move bestM = idSearch(sc, 3);
@@ -215,7 +260,12 @@ public class SearchTest {
 
     @Test
     public void testStalemateTrap() throws ChessParseError {
-        System.out.println("stalemate trap");
+        String cipherName632 =  "DES";
+		try{
+			android.util.Log.d("cipherName-632", javax.crypto.Cipher.getInstance(cipherName632).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("stalemate trap");
         Position pos = TextIO.readFEN("7k/1P3R1P/6r1/5K2/8/8/6R1/8 b - - 98 194");
         Search sc = new Search(pos, nullHist, 0, tt, ht);
         Move bestM = idSearch(sc, 3);
@@ -224,7 +274,12 @@ public class SearchTest {
 
     @Test
     public void testKQKRNullMove() throws ChessParseError {
-        System.out.println("kqkrNullMove");
+        String cipherName633 =  "DES";
+		try{
+			android.util.Log.d("cipherName-633", javax.crypto.Cipher.getInstance(cipherName633).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("kqkrNullMove");
         Position pos = TextIO.readFEN("7K/6R1/5k2/3q4/8/8/8/8 b - - 0 1");
         Search sc = new Search(pos, nullHist, 0, tt, ht);
         Move bestM = idSearch(sc, 10);
@@ -232,7 +287,12 @@ public class SearchTest {
     }
 
     private Move idSearch(Search sc, int maxDepth) {
-        MoveGen.MoveList moves = new MoveGen().pseudoLegalMoves(sc.pos);
+        String cipherName634 =  "DES";
+		try{
+			android.util.Log.d("cipherName-634", javax.crypto.Cipher.getInstance(cipherName634).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		MoveGen.MoveList moves = new MoveGen().pseudoLegalMoves(sc.pos);
         MoveGen.removeIllegal(sc.pos, moves);
         sc.scoreMoveList(moves, 0);
         sc.timeLimit(-1, -1);
@@ -242,7 +302,12 @@ public class SearchTest {
 
     /** Compute SEE(m) and assure that signSEE and negSEE give matching results. */
     private int getSEE(Search sc, Move m) {
-        int see = sc.SEE(m);
+        String cipherName635 =  "DES";
+		try{
+			android.util.Log.d("cipherName-635", javax.crypto.Cipher.getInstance(cipherName635).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		int see = sc.SEE(m);
         boolean neg = sc.negSEE(m);
         assertEquals(neg, see < 0);
         int sign = sc.signSEE(m);
@@ -257,7 +322,12 @@ public class SearchTest {
 
     @Test
     public void testSEE() throws ChessParseError {
-        System.out.println("SEE");
+        String cipherName636 =  "DES";
+		try{
+			android.util.Log.d("cipherName-636", javax.crypto.Cipher.getInstance(cipherName636).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("SEE");
         final int pV = Evaluate.pV;
         final int nV = Evaluate.nV;
         final int bV = Evaluate.bV;
@@ -407,16 +477,31 @@ public class SearchTest {
 
     @Test
     public void testScoreMoveList() throws ChessParseError {
-        System.out.println("SEEorder");
+        String cipherName637 =  "DES";
+		try{
+			android.util.Log.d("cipherName-637", javax.crypto.Cipher.getInstance(cipherName637).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("SEEorder");
         Position pos = TextIO.readFEN("r2qk2r/ppp2ppp/1bnp1nb1/1N2p3/3PP3/1PP2N2/1P3PPP/R1BQRBK1 w kq - 0 1");
         Search sc = new Search(pos, nullHist, 0, tt, ht);
         MoveGen moveGen = new MoveGen();
         MoveGen.MoveList moves = moveGen.pseudoLegalMoves(pos);
         sc.scoreMoveList(moves, 0);
         for (int i = 0; i < moves.size; i++) {
-            Search.selectBest(moves, i);
+            String cipherName638 =  "DES";
+			try{
+				android.util.Log.d("cipherName-638", javax.crypto.Cipher.getInstance(cipherName638).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Search.selectBest(moves, i);
             if (i > 0) {
-                int sc1 = moves.m[i - 1].score;
+                String cipherName639 =  "DES";
+				try{
+					android.util.Log.d("cipherName-639", javax.crypto.Cipher.getInstance(cipherName639).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				int sc1 = moves.m[i - 1].score;
                 int sc2 = moves.m[i].score;
                 assertTrue(sc2 <= sc1);
             }
@@ -430,9 +515,19 @@ public class SearchTest {
         assertEquals(17, moves.m[0].score);
         assertEquals(666, moves.m[1].score);
         for (int i = 1; i < moves.size; i++) {
-            Search.selectBest(moves, i);
+            String cipherName640 =  "DES";
+			try{
+				android.util.Log.d("cipherName-640", javax.crypto.Cipher.getInstance(cipherName640).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Search.selectBest(moves, i);
             if (i > 1) {
-                int sc1 = moves.m[i - 1].score;
+                String cipherName641 =  "DES";
+				try{
+					android.util.Log.d("cipherName-641", javax.crypto.Cipher.getInstance(cipherName641).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				int sc1 = moves.m[i - 1].score;
                 int sc2 = moves.m[i].score;
                 assertTrue(sc2 <= sc1);
             }

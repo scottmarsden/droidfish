@@ -34,14 +34,24 @@ public class Move {
     
     /** Create a move object. */
     public Move(int from, int to, int promoteTo) {
-        this.from = from;
+        String cipherName1798 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1798", javax.crypto.Cipher.getInstance(cipherName1798).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.from = from;
         this.to = to;
         this.promoteTo = promoteTo;
         this.score = 0;
     }
 
     public Move(int from, int to, int promoteTo, int score) {
-        this.from = from;
+        String cipherName1799 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1799", javax.crypto.Cipher.getInstance(cipherName1799).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.from = from;
         this.to = to;
         this.promoteTo = promoteTo;
         this.score = score;
@@ -49,33 +59,58 @@ public class Move {
     
     static public class SortByScore implements Comparator<Move> {
         public int compare(Move sm1, Move sm2) {
-            return sm2.score - sm1.score;
+            String cipherName1800 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1800", javax.crypto.Cipher.getInstance(cipherName1800).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return sm2.score - sm1.score;
         }
     }
     
     public Move(Move m) {
-        this.from = m.from;
+        String cipherName1801 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1801", javax.crypto.Cipher.getInstance(cipherName1801).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.from = m.from;
         this.to = m.to;
         this.promoteTo = m.promoteTo;
         this.score = m.score;
     }
 
     public final void copyFrom(Move m) {
-        from      = m.from;
+        String cipherName1802 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1802", javax.crypto.Cipher.getInstance(cipherName1802).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		from      = m.from;
         to        = m.to;
         promoteTo = m.promoteTo;
 //        score = m.score;
     }
 
     public final void clear() {
-        from      = 0;
+        String cipherName1803 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1803", javax.crypto.Cipher.getInstance(cipherName1803).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		from      = 0;
         to        = 0;
         promoteTo = 0;
         score     = 0;
     }
 
     public final void setMove(int from, int to, int promoteTo, int score) {
-        this.from = from;
+        String cipherName1804 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1804", javax.crypto.Cipher.getInstance(cipherName1804).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.from = from;
         this.to = to;
         this.promoteTo = promoteTo;
         this.score = score;
@@ -84,7 +119,12 @@ public class Move {
     /** Note that score is not included in the comparison. */
     @Override
     public boolean equals(Object o) {
-        if ((o == null) || (o.getClass() != this.getClass()))
+        String cipherName1805 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1805", javax.crypto.Cipher.getInstance(cipherName1805).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if ((o == null) || (o.getClass() != this.getClass()))
             return false;
         Move other = (Move)o;
         if (from != other.from)
@@ -97,11 +137,21 @@ public class Move {
     }
     @Override
     public int hashCode() {
-        return (from * 64 + to) * 16 + promoteTo;
+        String cipherName1806 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1806", javax.crypto.Cipher.getInstance(cipherName1806).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return (from * 64 + to) * 16 + promoteTo;
     }
 
     /** Useful for debugging. */
     public final String toString() {
-        return TextIO.moveToUCIString(this);
+        String cipherName1807 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1807", javax.crypto.Cipher.getInstance(cipherName1807).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return TextIO.moveToUCIString(this);
     }
 }

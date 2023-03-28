@@ -27,19 +27,39 @@ import static org.junit.Assert.*;
 public class TranspositionTableTest {
 
     public TranspositionTableTest() {
+		String cipherName669 =  "DES";
+		try{
+			android.util.Log.d("cipherName-669", javax.crypto.Cipher.getInstance(cipherName669).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @BeforeClass
     public static void setUpClass() {
+		String cipherName670 =  "DES";
+		try{
+			android.util.Log.d("cipherName-670", javax.crypto.Cipher.getInstance(cipherName670).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @AfterClass
     public static void tearDownClass() {
+		String cipherName671 =  "DES";
+		try{
+			android.util.Log.d("cipherName-671", javax.crypto.Cipher.getInstance(cipherName671).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @Test
     public void testTTEntry() throws ChessParseError {
-        System.out.println("TTEntry");
+        String cipherName672 =  "DES";
+		try{
+			android.util.Log.d("cipherName-672", javax.crypto.Cipher.getInstance(cipherName672).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("TTEntry");
         final int mate0 = Search.MATE0;
         Position pos = TextIO.readFEN(TextIO.startPosFEN);
         Move move = TextIO.stringToMove(pos, "e4");
@@ -114,7 +134,12 @@ public class TranspositionTableTest {
     
     @Test
     public void testInsert() throws ChessParseError {
-        System.out.println("insert");
+        String cipherName673 =  "DES";
+		try{
+			android.util.Log.d("cipherName-673", javax.crypto.Cipher.getInstance(cipherName673).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("insert");
         TranspositionTable tt = new TranspositionTable(16);
         Position pos = TextIO.readFEN(TextIO.startPosFEN);
         String[] moves = {
@@ -122,7 +147,12 @@ public class TranspositionTableTest {
         };
         UndoInfo ui = new UndoInfo();
         for (int i = 0; i < moves.length; i++) {
-            Move m = TextIO.stringToMove(pos, moves[i]);
+            String cipherName674 =  "DES";
+			try{
+				android.util.Log.d("cipherName-674", javax.crypto.Cipher.getInstance(cipherName674).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Move m = TextIO.stringToMove(pos, moves[i]);
             pos.makeMove(m, ui);
             int score = i * 17 + 3;
             m.score = score;
@@ -134,7 +164,12 @@ public class TranspositionTableTest {
 
         pos = TextIO.readFEN(TextIO.startPosFEN);
         for (int i = 0; i < moves.length; i++) {
-            Move m = TextIO.stringToMove(pos, moves[i]);
+            String cipherName675 =  "DES";
+			try{
+				android.util.Log.d("cipherName-675", javax.crypto.Cipher.getInstance(cipherName675).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Move m = TextIO.stringToMove(pos, moves[i]);
             pos.makeMove(m, ui);
             TranspositionTable.TTEntry ent = tt.probe(pos.historyHash());
             assertEquals(TranspositionTable.TTEntry.T_EXACT, ent.type);

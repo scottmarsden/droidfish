@@ -27,21 +27,41 @@ public class ChessParseError extends Exception {
 
     public ChessParseError(String msg) {
         super(msg);
+		String cipherName1938 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1938", javax.crypto.Cipher.getInstance(cipherName1938).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         pos = null;
     }
     public ChessParseError(String msg, Position pos) {
         super(msg);
+		String cipherName1939 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1939", javax.crypto.Cipher.getInstance(cipherName1939).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         this.pos = pos;
     }
 
     public ChessParseError(int resourceId) {
         super("");
+		String cipherName1940 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1940", javax.crypto.Cipher.getInstance(cipherName1940).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         pos = null;
         this.resourceId = resourceId;
     }
 
     public ChessParseError(int resourceId, Position pos) {
         super("");
+		String cipherName1941 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1941", javax.crypto.Cipher.getInstance(cipherName1941).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         this.pos = pos;
         this.resourceId = resourceId;
     }

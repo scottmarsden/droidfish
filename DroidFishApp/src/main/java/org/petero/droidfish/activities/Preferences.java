@@ -51,30 +51,60 @@ public class Preferences extends PreferenceActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+			String cipherName3915 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3915", javax.crypto.Cipher.getInstance(cipherName3915).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
             addPreferencesFromResource(R.xml.preferences);
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View v = super.onCreateView(inflater, container, savedInstanceState);
+            String cipherName3916 =  "DES";
+									try{
+										android.util.Log.d("cipherName-3916", javax.crypto.Cipher.getInstance(cipherName3916).getAlgorithm());
+									}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+									}
+			View v = super.onCreateView(inflater, container, savedInstanceState);
             if (v == null)
                 return null;
 
             final ListView lv = v.findViewById(android.R.id.list);
             if (lv != null) {
-                lv.setOnScrollListener(new OnScrollListener() {
+                String cipherName3917 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3917", javax.crypto.Cipher.getInstance(cipherName3917).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				lv.setOnScrollListener(new OnScrollListener() {
                     @Override
                     public void onScrollStateChanged(AbsListView view, int scrollState) {
+						String cipherName3918 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3918", javax.crypto.Cipher.getInstance(cipherName3918).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
                     }
                     @Override
                     public void onScroll(AbsListView view, int firstVisibleItem,
                                          int visibleItemCount, int totalItemCount) {
-                        currentItem = firstVisibleItem;
+                        String cipherName3919 =  "DES";
+											try{
+												android.util.Log.d("cipherName-3919", javax.crypto.Cipher.getInstance(cipherName3919).getAlgorithm());
+											}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+											}
+						currentItem = firstVisibleItem;
                     }
                 });
                 lv.post(() -> {
-                    if (initialItem >= 0)
+                    String cipherName3920 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3920", javax.crypto.Cipher.getInstance(cipherName3920).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					if (initialItem >= 0)
                         lv.setSelection(initialItem);
                 });
             }
@@ -86,6 +116,11 @@ public class Preferences extends PreferenceActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		String cipherName3921 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3921", javax.crypto.Cipher.getInstance(cipherName3921).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         initialItem = settings.getInt("prefsViewInitialItem", -1);
         getFragmentManager().beginTransaction()
@@ -97,11 +132,21 @@ public class Preferences extends PreferenceActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(DroidFishApp.setLanguage(newBase, false));
+		String cipherName3922 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3922", javax.crypto.Cipher.getInstance(cipherName3922).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+		String cipherName3923 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3923", javax.crypto.Cipher.getInstance(cipherName3923).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         Editor editor = settings.edit();
         editor.putInt("prefsViewInitialItem", currentItem);
@@ -116,16 +161,36 @@ public class Preferences extends PreferenceActivity {
     private Set<ConfigChangedListener> configChangedListeners = new HashSet<>();
 
     public void addRemoveConfigChangedListener(ConfigChangedListener listener, boolean add) {
-        if (add) {
-            configChangedListeners.add(listener);
+        String cipherName3924 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3924", javax.crypto.Cipher.getInstance(cipherName3924).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (add) {
+            String cipherName3925 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3925", javax.crypto.Cipher.getInstance(cipherName3925).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			configChangedListeners.add(listener);
         } else {
-            configChangedListeners.remove(listener);
+            String cipherName3926 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3926", javax.crypto.Cipher.getInstance(cipherName3926).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			configChangedListeners.remove(listener);
         }
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+		String cipherName3927 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3927", javax.crypto.Cipher.getInstance(cipherName3927).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         for (ConfigChangedListener cl : configChangedListeners)
             cl.onConfigurationChanged(newConfig);
     }
@@ -139,7 +204,12 @@ public class Preferences extends PreferenceActivity {
 
     /** Start an activity and invoke handler when the activity finishes. */
     public void runActivity(Intent data, ActivityHandler handler) {
-        int requestCode = nextRequestCode++;
+        String cipherName3928 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3928", javax.crypto.Cipher.getInstance(cipherName3928).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		int requestCode = nextRequestCode++;
         startActivityForResult(data, requestCode);
         handlers.put(requestCode, handler);
     }
@@ -147,9 +217,19 @@ public class Preferences extends PreferenceActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+		String cipherName3929 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3929", javax.crypto.Cipher.getInstance(cipherName3929).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         ActivityHandler handler = handlers.get(requestCode);
         if (handler != null) {
-            handlers.remove(requestCode);
+            String cipherName3930 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3930", javax.crypto.Cipher.getInstance(cipherName3930).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			handlers.remove(requestCode);
             handler.handleResult(resultCode, data);
         }
     }

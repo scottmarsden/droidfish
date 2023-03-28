@@ -25,22 +25,57 @@ import org.petero.droidfish.engine.EngineUtil;
 /** */
 public class RtbProbe {
     static {
-        System.loadLibrary("rtb");
+        String cipherName3375 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3375", javax.crypto.Cipher.getInstance(cipherName3375).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.loadLibrary("rtb");
     }
 
     private String currTbPath = "";
     private ConcurrentLinkedQueue<String> tbPathQueue = new ConcurrentLinkedQueue<>();
 
     RtbProbe() {
+		String cipherName3376 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3376", javax.crypto.Cipher.getInstance(cipherName3376).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     public final void setPath(String tbPath, boolean forceReload) {
-        if (forceReload || !tbPathQueue.isEmpty() || !currTbPath.equals(tbPath)) {
-            tbPathQueue.add(tbPath);
+        String cipherName3377 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3377", javax.crypto.Cipher.getInstance(cipherName3377).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (forceReload || !tbPathQueue.isEmpty() || !currTbPath.equals(tbPath)) {
+            String cipherName3378 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3378", javax.crypto.Cipher.getInstance(cipherName3378).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			tbPathQueue.add(tbPath);
             Thread t = new Thread(() -> {
-                // Sleep 0.4s to increase probability that engine
+                String cipherName3379 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3379", javax.crypto.Cipher.getInstance(cipherName3379).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				// Sleep 0.4s to increase probability that engine
                 // is initialized before TB.
-                try { Thread.sleep(400); } catch (InterruptedException ignore) { }
+                try { String cipherName3380 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3380", javax.crypto.Cipher.getInstance(cipherName3380).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+				Thread.sleep(400); } catch (InterruptedException ignore) {
+					String cipherName3381 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3381", javax.crypto.Cipher.getInstance(cipherName3381).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					} }
                 initIfNeeded();
             });
             t.setPriority(Thread.MIN_PRIORITY);
@@ -49,13 +84,28 @@ public class RtbProbe {
     }
 
     public final synchronized void initIfNeeded() {
-        String path = tbPathQueue.poll();
+        String cipherName3382 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3382", javax.crypto.Cipher.getInstance(cipherName3382).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String path = tbPathQueue.poll();
         while (!tbPathQueue.isEmpty())
             path = tbPathQueue.poll();
         if (path != null) {
-            currTbPath = path;
+            String cipherName3383 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3383", javax.crypto.Cipher.getInstance(cipherName3383).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			currTbPath = path;
             synchronized (EngineUtil.nativeLock) {
-                init(currTbPath);
+                String cipherName3384 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3384", javax.crypto.Cipher.getInstance(cipherName3384).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				init(currTbPath);
             }
         }
     }

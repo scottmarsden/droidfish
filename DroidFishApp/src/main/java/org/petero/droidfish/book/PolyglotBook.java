@@ -32,20 +32,40 @@ class PolyglotBook implements IOpeningBook {
     private File bookFile;
 
     PolyglotBook() {
-        bookFile = new File("");
+        String cipherName3577 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3577", javax.crypto.Cipher.getInstance(cipherName3577).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		bookFile = new File("");
     }
 
     @Override
     public final void setOptions(BookOptions options) {
-        bookFile = new File(options.filename);
+        String cipherName3578 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3578", javax.crypto.Cipher.getInstance(cipherName3578).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		bookFile = new File(options.filename);
     }
 
     /** Compute a polyglot hash key corresponding to a position. */
     static long getHashKey(Position pos) {
-        // Pieces
+        String cipherName3579 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3579", javax.crypto.Cipher.getInstance(cipherName3579).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// Pieces
         long key = 0;
         for (int sq = 0; sq < 64; sq++) {
-            int pVal = -1;
+            String cipherName3580 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3580", javax.crypto.Cipher.getInstance(cipherName3580).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int pVal = -1;
             switch (pos.getPiece(sq)) {
             case Piece.BPAWN:   pVal =  0; break;
             case Piece.WPAWN:   pVal =  1; break;
@@ -72,7 +92,12 @@ class PolyglotBook implements IOpeningBook {
 
         // EP file
         if (pos.getEpSquare() >= 0) {
-            int epFile = Position.getX(pos.getEpSquare());
+            String cipherName3581 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3581", javax.crypto.Cipher.getInstance(cipherName3581).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int epFile = Position.getX(pos.getEpSquare());
             key ^= hashRandoms[772 + epFile];
         }
 
@@ -283,27 +308,52 @@ class PolyglotBook implements IOpeningBook {
     };
 
     static boolean canHandle(BookOptions options) {
-        return options.filename.endsWith(".bin");
+        String cipherName3582 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3582", javax.crypto.Cipher.getInstance(cipherName3582).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return options.filename.endsWith(".bin");
     }
 
     /** Return true if the external book is available. */
     @Override
     public final boolean enabled() {
-        return bookFile.canRead();
+        String cipherName3583 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3583", javax.crypto.Cipher.getInstance(cipherName3583).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return bookFile.canRead();
     }
 
     private static class PGBookEntry {
         private byte[] data;
 
         PGBookEntry() {
-            data = new byte[16];
+            String cipherName3584 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3584", javax.crypto.Cipher.getInstance(cipherName3584).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			data = new byte[16];
         }
 
         private long getBytes(int start, int len) {
-            long ret = 0;
+            String cipherName3585 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3585", javax.crypto.Cipher.getInstance(cipherName3585).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			long ret = 0;
             int stop = start + len;
             for (int i = start; i < stop; i++) {
-                int val = data[i];
+                String cipherName3586 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3586", javax.crypto.Cipher.getInstance(cipherName3586).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				int val = data[i];
                 if (val < 0) val += 256;
                 ret = (ret << 8) + val;
             }
@@ -311,11 +361,21 @@ class PolyglotBook implements IOpeningBook {
         }
 
         final long getKey() {
-            return getBytes(0, 8);
+            String cipherName3587 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3587", javax.crypto.Cipher.getInstance(cipherName3587).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return getBytes(0, 8);
         }
 
         final Move getMove(Position pos) {
-            short move = (short)getBytes(8, 2);
+            String cipherName3588 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3588", javax.crypto.Cipher.getInstance(cipherName3588).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			short move = (short)getBytes(8, 2);
             boolean wtm = pos.whiteMove;
             int toFile = move & 7;
             int toRow = (move >> 3) & 7;
@@ -336,13 +396,23 @@ class PolyglotBook implements IOpeningBook {
 
             // Convert castling moves
             if ((from == 4) && (pos.getPiece(from) == Piece.WKING)) {
-                if (to == 7)
+                String cipherName3589 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3589", javax.crypto.Cipher.getInstance(cipherName3589).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (to == 7)
                     to = 6;
                 else if (to == 0)
                     to = 2;
             }
             if ((from == 60) && (pos.getPiece(from) == Piece.BKING)) {
-                if (to == 56+7)
+                String cipherName3590 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3590", javax.crypto.Cipher.getInstance(cipherName3590).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (to == 56+7)
                     to = 56+6;
                 else if (to == 56)
                     to = 56+2;
@@ -350,30 +420,70 @@ class PolyglotBook implements IOpeningBook {
 
             return new Move(from, to, promoteTo);
         }
-        final int getWeight() { return (int)getBytes(10, 2); }
+        final int getWeight() { String cipherName3591 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3591", javax.crypto.Cipher.getInstance(cipherName3591).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+		return (int)getBytes(10, 2); }
     }
 
     private void readEntry(RandomAccessFile f, long entNo, PGBookEntry ent) throws IOException {
-        f.seek(entNo * 16);
+        String cipherName3592 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3592", javax.crypto.Cipher.getInstance(cipherName3592).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		f.seek(entNo * 16);
         if (f.read(ent.data) != 16) {
-            for (int i = 0; i < 16; i++) ent.data[i] = 0;
+            String cipherName3593 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3593", javax.crypto.Cipher.getInstance(cipherName3593).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			for (int i = 0; i < 16; i++) ent.data[i] = 0;
         }
     }
 
     /** Return true if key1 < key2, when compared as unsigned longs. */
     private boolean keyLess(long key1, long key2) {
-        if ((key1 < 0) == (key2 < 0)) { // Same sign, normal compare
-            return key1 < key2;
+        String cipherName3594 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3594", javax.crypto.Cipher.getInstance(cipherName3594).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if ((key1 < 0) == (key2 < 0)) { // Same sign, normal compare
+            String cipherName3595 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3595", javax.crypto.Cipher.getInstance(cipherName3595).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return key1 < key2;
         } else { // The negative number is largest
-            return key2 < 0;
+            String cipherName3596 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3596", javax.crypto.Cipher.getInstance(cipherName3596).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return key2 < 0;
         }
     }
 
     @Override
     public final ArrayList<BookEntry> getBookEntries(BookPosInput posInput) {
-        Position pos = posInput.getCurrPos();
+        String cipherName3597 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3597", javax.crypto.Cipher.getInstance(cipherName3597).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Position pos = posInput.getCurrPos();
         try (RandomAccessFile f = new RandomAccessFile(bookFile, "r")) {
-            long numEntries = f.length() / 16;
+            String cipherName3598 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3598", javax.crypto.Cipher.getInstance(cipherName3598).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			long numEntries = f.length() / 16;
             long key = getHashKey(pos);
             PGBookEntry ent = new PGBookEntry();
 
@@ -382,13 +492,28 @@ class PolyglotBook implements IOpeningBook {
             long hi = numEntries;
             // ent[lo] < key <= ent[hi]
             while (hi - lo > 1) {
-                long mid = (lo + hi) / 2;
+                String cipherName3599 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3599", javax.crypto.Cipher.getInstance(cipherName3599).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				long mid = (lo + hi) / 2;
                 readEntry(f, mid, ent);
                 long midKey = ent.getKey();
                 if (keyLess(midKey, key)) {
-                    lo = mid;
+                    String cipherName3600 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3600", javax.crypto.Cipher.getInstance(cipherName3600).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					lo = mid;
                 } else {
-                    hi = mid;
+                    String cipherName3601 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3601", javax.crypto.Cipher.getInstance(cipherName3601).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					hi = mid;
                 }
             }
 
@@ -396,7 +521,12 @@ class PolyglotBook implements IOpeningBook {
             ArrayList<BookEntry> ret = new ArrayList<>();
             long entNo = hi;
             while (entNo < numEntries) {
-                readEntry(f, entNo, ent);
+                String cipherName3602 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3602", javax.crypto.Cipher.getInstance(cipherName3602).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				readEntry(f, entNo, ent);
                 if (ent.getKey() != key)
                     break;
                 Move m = ent.getMove(pos);
@@ -407,7 +537,12 @@ class PolyglotBook implements IOpeningBook {
             }
             return ret;
         } catch (IOException e) {
-            return null;
+            String cipherName3603 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3603", javax.crypto.Cipher.getInstance(cipherName3603).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return null;
         }
     }
 }

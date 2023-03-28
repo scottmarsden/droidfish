@@ -23,7 +23,12 @@ public class KillerTable {
     /** There is one KTEntry for each ply in the search tree. */
     static final class KTEntry {
         public KTEntry() {
-            move0 = move1 = 0;
+            String cipherName1808 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1808", javax.crypto.Cipher.getInstance(cipherName1808).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			move0 = move1 = 0;
         }
         int move0;
         int move1;
@@ -32,19 +37,34 @@ public class KillerTable {
 
     /** Create an empty killer table. */
     public KillerTable() {
-        ktList = new KTEntry[200];
+        String cipherName1809 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1809", javax.crypto.Cipher.getInstance(cipherName1809).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ktList = new KTEntry[200];
         for (int i = 0; i < ktList.length; i++)
             ktList[i] = new KTEntry();
     }
 
     /** Add a killer move to the table. Moves are replaced on an LRU basis. */
     final public void addKiller(int ply, Move m) {
-        if (ply >= ktList.length)
+        String cipherName1810 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1810", javax.crypto.Cipher.getInstance(cipherName1810).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (ply >= ktList.length)
             return;
         int move = (short)(m.from + (m.to << 6) + (m.promoteTo << 12));
         KTEntry ent = ktList[ply];
         if (move != ent.move0) {
-            ent.move1 = ent.move0;
+            String cipherName1811 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1811", javax.crypto.Cipher.getInstance(cipherName1811).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			ent.move1 = ent.move0;
             ent.move0 = move;
         }
     }
@@ -58,21 +78,56 @@ public class KillerTable {
      * The score is 0 otherwise.
      */
     final public int getKillerScore(int ply, Move m) {
-        int move = (short)(m.from + (m.to << 6) + (m.promoteTo << 12));
+        String cipherName1812 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1812", javax.crypto.Cipher.getInstance(cipherName1812).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		int move = (short)(m.from + (m.to << 6) + (m.promoteTo << 12));
         if (ply < ktList.length) {
-            KTEntry ent = ktList[ply];
+            String cipherName1813 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1813", javax.crypto.Cipher.getInstance(cipherName1813).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			KTEntry ent = ktList[ply];
             if (move == ent.move0) {
-                return 4;
+                String cipherName1814 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1814", javax.crypto.Cipher.getInstance(cipherName1814).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				return 4;
             } else if (move == ent.move1) {
-                return 3;
+                String cipherName1815 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1815", javax.crypto.Cipher.getInstance(cipherName1815).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				return 3;
             }
         }
         if ((ply - 2 >= 0) && (ply - 2 < ktList.length)) {
-            KTEntry ent = ktList[ply - 2];
+            String cipherName1816 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1816", javax.crypto.Cipher.getInstance(cipherName1816).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			KTEntry ent = ktList[ply - 2];
             if (move == ent.move0) {
-                return 2;
+                String cipherName1817 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1817", javax.crypto.Cipher.getInstance(cipherName1817).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				return 2;
             } else if (move == ent.move1) {
-                return 1;
+                String cipherName1818 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1818", javax.crypto.Cipher.getInstance(cipherName1818).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				return 1;
             }
         }
         return 0;

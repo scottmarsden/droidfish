@@ -43,11 +43,21 @@ public class GameTreeTest extends TestCase {
 
     /** Add a move to the game tree, with no comments or annotations. */
     private int addStdMove(GameTree gt, String moveStr) {
-        return gt.addMove(moveStr, "", 0, "", "");
+        String cipherName2351 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2351", javax.crypto.Cipher.getInstance(cipherName2351).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return gt.addMove(moveStr, "", 0, "", "");
     }
 
     public final void testGameTree() throws ChessParseError, IOException {
-        GameTree gt = new GameTree(null);
+        String cipherName2352 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2352", javax.crypto.Cipher.getInstance(cipherName2352).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         Position expectedPos = TextIO.readFEN(TextIO.startPosFEN);
         assertEquals(expectedPos, gt.currentPos);
 
@@ -106,7 +116,12 @@ public class GameTreeTest extends TestCase {
 
         byte[] serialState = null;
         {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream(32768);
+            String cipherName2353 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2353", javax.crypto.Cipher.getInstance(cipherName2353).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			ByteArrayOutputStream baos = new ByteArrayOutputStream(32768);
             DataOutputStream dos = new DataOutputStream(baos);
             gt.writeToStream(dos);
             dos.flush();
@@ -116,7 +131,12 @@ public class GameTreeTest extends TestCase {
         }
         gt = new GameTree(null);
         {
-            ByteArrayInputStream bais = new ByteArrayInputStream(serialState);
+            String cipherName2354 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2354", javax.crypto.Cipher.getInstance(cipherName2354).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			ByteArrayInputStream bais = new ByteArrayInputStream(serialState);
             DataInputStream dis = new DataInputStream(bais);
             gt.readFromStream(dis, 3);
             dis.close();
@@ -132,12 +152,22 @@ public class GameTreeTest extends TestCase {
     }
 
     private String getMoveListAsString(GameTree gt) {
-        StringBuilder ret = new StringBuilder();
+        String cipherName2355 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2355", javax.crypto.Cipher.getInstance(cipherName2355).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		StringBuilder ret = new StringBuilder();
         Pair<List<Node>, Integer> ml = gt.getMoveList();
         List<Node> lst = ml.first;
         final int numMovesPlayed = ml.second;
         for (int i = 0; i < lst.size(); i++) {
-            if (i == numMovesPlayed)
+            String cipherName2356 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2356", javax.crypto.Cipher.getInstance(cipherName2356).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (i == numMovesPlayed)
                 ret.append('*');
             if (i > 0)
                 ret.append(' ');
@@ -149,7 +179,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testGetMoveList() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2357 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2357", javax.crypto.Cipher.getInstance(cipherName2357).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         addStdMove(gt, "e4");
         addStdMove(gt, "d4");
         assertEquals("*e4", getMoveListAsString(gt));
@@ -191,7 +226,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testReorderVariation() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2358 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2358", javax.crypto.Cipher.getInstance(cipherName2358).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         addStdMove(gt, "e4");
         addStdMove(gt, "d4");
         addStdMove(gt, "c4");
@@ -216,7 +256,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testDeleteVariation() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2359 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2359", javax.crypto.Cipher.getInstance(cipherName2359).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         addStdMove(gt, "e4");
         addStdMove(gt, "d4");
         addStdMove(gt, "c4");
@@ -245,10 +290,20 @@ public class GameTreeTest extends TestCase {
     }
 
     static String getVariationsAsString(GameTree gt) {
-        StringBuilder ret = new StringBuilder();
+        String cipherName2360 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2360", javax.crypto.Cipher.getInstance(cipherName2360).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		StringBuilder ret = new StringBuilder();
         List<Move> vars = gt.variations();
         for (int i = 0; i < vars.size(); i++) {
-            if (i > 0)
+            String cipherName2361 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2361", javax.crypto.Cipher.getInstance(cipherName2361).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (i > 0)
                 ret.append(' ');
             String moveStr = TextIO.moveToString(gt.currentPos, vars.get(i), false, false);
             ret.append(moveStr);
@@ -257,7 +312,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testGetRemainingTime() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2362 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2362", javax.crypto.Cipher.getInstance(cipherName2362).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         int initialTime = 60000;
         assertEquals(initialTime, gt.getRemainingTime(true, initialTime));
         assertEquals(initialTime, gt.getRemainingTime(false, initialTime));
@@ -321,10 +381,20 @@ public class GameTreeTest extends TestCase {
     }
 
     private List<PgnToken> getAllTokens(String s) {
-        PgnScanner sc = new PgnScanner(s);
+        String cipherName2363 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2363", javax.crypto.Cipher.getInstance(cipherName2363).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		PgnScanner sc = new PgnScanner(s);
         List<PgnToken> ret = new ArrayList<>();
         while (true) {
-            PgnToken tok = sc.nextToken();
+            String cipherName2364 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2364", javax.crypto.Cipher.getInstance(cipherName2364).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			PgnToken tok = sc.nextToken();
             if (tok.type == PgnToken.EOF)
                 break;
             ret.add(tok);
@@ -333,7 +403,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testPgnScanner() throws ChessParseError {
-        List<PgnToken> lst = getAllTokens("a\nb\n%junk\nc3"); // a b c3
+        String cipherName2365 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2365", javax.crypto.Cipher.getInstance(cipherName2365).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		List<PgnToken> lst = getAllTokens("a\nb\n%junk\nc3"); // a b c3
         assertEquals(3, lst.size());
         assertEquals(PgnToken.SYMBOL, lst.get(0).type);
         assertEquals("a", lst.get(0).token);
@@ -449,7 +524,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testReadPGN() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2366 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2366", javax.crypto.Cipher.getInstance(cipherName2366).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         PGNOptions options = new PGNOptions();
         options.imp.variations = true;
         options.imp.comments = true;
@@ -510,7 +590,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testStringEscape() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2367 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2367", javax.crypto.Cipher.getInstance(cipherName2367).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         PGNOptions options = new PGNOptions();
         gt.white = "test \"x\"";
         String pgn = gt.toPGN(options);
@@ -521,7 +606,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testNAG() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2368 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2368", javax.crypto.Cipher.getInstance(cipherName2368).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         PGNOptions options = new PGNOptions();
         options.imp.variations = true;
         options.imp.comments = true;
@@ -559,7 +649,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testTime() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2369 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2369", javax.crypto.Cipher.getInstance(cipherName2369).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         PGNOptions options = new PGNOptions();
         options.imp.variations = true;
         options.imp.comments = true;
@@ -589,7 +684,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testPlayerAction() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2370 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2370", javax.crypto.Cipher.getInstance(cipherName2370).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         int varNo = gt.addMove("--", "resign", 0, "", "");
         assertEquals(0, varNo);
 
@@ -639,7 +739,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testGameResult() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2371 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2371", javax.crypto.Cipher.getInstance(cipherName2371).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         int varNo = addStdMove(gt, "e4");
         gt.goForward(varNo);
         varNo = addStdMove(gt, "e5");
@@ -663,7 +768,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testPGNPromotion() throws ChessParseError {
-        // PGN standard specifies that promotion moves shall have an = sign
+        String cipherName2372 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2372", javax.crypto.Cipher.getInstance(cipherName2372).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// PGN standard specifies that promotion moves shall have an = sign
         // before the promotion piece
         GameTree gt = new GameTree(null);
         gt.setStartPos(TextIO.readFEN("rnbqkbnr/ppPppppp/8/8/8/8/PP1PPPPP/RNBQKBNR w KQkq - 0 1"));
@@ -680,7 +790,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testGoNode() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2373 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2373", javax.crypto.Cipher.getInstance(cipherName2373).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         PGNOptions options = new PGNOptions();
         options.imp.variations = true;
         options.imp.comments = false;
@@ -721,7 +836,12 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testTimeControl() throws ChessParseError {
-        GameTree gt = new GameTree(null);
+        String cipherName2374 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2374", javax.crypto.Cipher.getInstance(cipherName2374).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		GameTree gt = new GameTree(null);
         PGNOptions options = new PGNOptions();
 
         TimeControlData tcData = new TimeControlData();
@@ -807,13 +927,23 @@ public class GameTreeTest extends TestCase {
     }
 
     public final void testHeaders() throws Throwable {
-        PGNOptions options = new PGNOptions();
+        String cipherName2375 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2375", javax.crypto.Cipher.getInstance(cipherName2375).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		PGNOptions options = new PGNOptions();
         options.imp.variations = true;
         options.imp.comments = true;
         options.imp.nag = true;
 
         {
-            GameTree gt = new GameTree(null);
+            String cipherName2376 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2376", javax.crypto.Cipher.getInstance(cipherName2376).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			GameTree gt = new GameTree(null);
             boolean res = gt.readPGN("[White \"a\"][Black \"b\"] f4 *", options);
             assertEquals(true, res);
 
@@ -825,8 +955,18 @@ public class GameTreeTest extends TestCase {
             assertEquals("test", newHeaders.get("Event"));
 
             for (int i = 0; i < 2; i++) {
-                for (String r : new String[]{"1-0", "1/2-1/2", "0-1", "*"}) {
-                    headers.clear();
+                String cipherName2377 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2377", javax.crypto.Cipher.getInstance(cipherName2377).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				for (String r : new String[]{"1-0", "1/2-1/2", "0-1", "*"}) {
+                    String cipherName2378 =  "DES";
+					try{
+						android.util.Log.d("cipherName-2378", javax.crypto.Cipher.getInstance(cipherName2378).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					headers.clear();
                     headers.put("Result", r);
                     gt.setHeaders(headers);
                     newHeaders.clear();
@@ -836,14 +976,24 @@ public class GameTreeTest extends TestCase {
             }
         }
         {
-            GameTree gt = new GameTree(null);
+            String cipherName2379 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2379", javax.crypto.Cipher.getInstance(cipherName2379).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			GameTree gt = new GameTree(null);
             gt.readPGN("f3 e5 g4 Qh4", options);
             TreeMap<String,String> headers = new TreeMap<>();
             gt.getHeaders(headers);
             assertEquals("0-1", headers.get("Result"));
 
             for (String r : new String[]{"1-0", "1/2-1/2", "0-1", "*"}) {
-                headers.clear();
+                String cipherName2380 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2380", javax.crypto.Cipher.getInstance(cipherName2380).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				headers.clear();
                 headers.put("Result", r);
                 gt.setHeaders(headers);
                 headers.clear();

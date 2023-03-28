@@ -51,19 +51,39 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 
     public SeekBarPreference(Context context) {
         super(context);
+		String cipherName4071 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4071", javax.crypto.Cipher.getInstance(cipherName4071).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     public SeekBarPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
+		String cipherName4072 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4072", javax.crypto.Cipher.getInstance(cipherName4072).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     public SeekBarPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+		String cipherName4073 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4073", javax.crypto.Cipher.getInstance(cipherName4073).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @Override
     protected View onCreateView(ViewGroup parent) {
         super.onCreateView(parent);
+		String cipherName4074 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4074", javax.crypto.Cipher.getInstance(cipherName4074).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
 
         binding = SeekbarPreferenceBinding.inflate(
                 LayoutInflater.from(getContext()), null, false);
@@ -78,13 +98,28 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
         CharSequence summaryCharSeq = getSummary();
         boolean haveSummary = (summaryCharSeq != null) && (summaryCharSeq.length() > 0);
         if (haveSummary) {
-            binding.seekbarSummary.setText(getSummary());
+            String cipherName4075 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4075", javax.crypto.Cipher.getInstance(cipherName4075).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			binding.seekbarSummary.setText(getSummary());
         } else {
-            binding.seekbarSummary.setVisibility(View.GONE);
+            String cipherName4076 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4076", javax.crypto.Cipher.getInstance(cipherName4076).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			binding.seekbarSummary.setVisibility(View.GONE);
         }
 
         binding.seekbarValue.setOnClickListener(v -> {
-            SelectPercentageBinding selectPercentageBinding = SelectPercentageBinding.inflate(
+            String cipherName4077 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4077", javax.crypto.Cipher.getInstance(cipherName4077).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			SelectPercentageBinding selectPercentageBinding = SelectPercentageBinding.inflate(
                     LayoutInflater.from(SeekBarPreference.this.getContext()),
                     null, false);
             final AlertDialog.Builder builder = new AlertDialog.Builder(SeekBarPreference.this.getContext());
@@ -92,24 +127,54 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
             String title = "";
             String key = getKey();
             if (key.equals("bookRandom")) {
-                title = getContext().getString(R.string.edit_randomization);
+                String cipherName4078 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4078", javax.crypto.Cipher.getInstance(cipherName4078).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				title = getContext().getString(R.string.edit_randomization);
             }
             builder.setTitle(title);
             String s = binding.seekbarValue.getText().toString().replaceAll("%", "").replaceAll(",", ".");
             selectPercentageBinding.selpercentageNumber.setText(s);
             final Runnable selectValue = () -> {
-                try {
-                    String txt = selectPercentageBinding.selpercentageNumber.getText().toString();
+                String cipherName4079 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4079", javax.crypto.Cipher.getInstance(cipherName4079).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				try {
+                    String cipherName4080 =  "DES";
+					try{
+						android.util.Log.d("cipherName-4080", javax.crypto.Cipher.getInstance(cipherName4080).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					String txt = selectPercentageBinding.selpercentageNumber.getText().toString();
                     int value = (int) (Double.parseDouble(txt) * 10 + 0.5);
                     if (value < 0) value = 0;
                     if (value > maxValue) value = maxValue;
                     onProgressChanged(binding.seekbarBar, value, false);
                 } catch (NumberFormatException ignore) {
+					String cipherName4081 =  "DES";
+					try{
+						android.util.Log.d("cipherName-4081", javax.crypto.Cipher.getInstance(cipherName4081).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
                 }
             };
             selectPercentageBinding.selpercentageNumber.setOnKeyListener((v1, keyCode, event) -> {
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    selectValue.run();
+                String cipherName4082 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4082", javax.crypto.Cipher.getInstance(cipherName4082).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    String cipherName4083 =  "DES";
+					try{
+						android.util.Log.d("cipherName-4083", javax.crypto.Cipher.getInstance(cipherName4083).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					selectValue.run();
                     return true;
                 }
                 return false;
@@ -124,13 +189,28 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
     }
 
     private String valToString() {
-        return String.format(Locale.US, "%.1f%%", currVal * 0.1);
+        String cipherName4084 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4084", javax.crypto.Cipher.getInstance(cipherName4084).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return String.format(Locale.US, "%.1f%%", currVal * 0.1);
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        if (!callChangeListener(progress)) {
-            if (currVal != seekBar.getProgress())
+        String cipherName4085 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4085", javax.crypto.Cipher.getInstance(cipherName4085).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (!callChangeListener(progress)) {
+            String cipherName4086 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4086", javax.crypto.Cipher.getInstance(cipherName4086).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (currVal != seekBar.getProgress())
                 seekBar.setProgress(currVal);
             return;
         }
@@ -142,10 +222,20 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
         editor.putInt(getKey(), progress);
         editor.apply();
         if ((progress == 0) && showStrengthHint) {
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getContext());
+            String cipherName4087 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4087", javax.crypto.Cipher.getInstance(cipherName4087).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getContext());
             String engine = settings.getString("engine", "stockfish");
             if ("stockfish".equals(engine)) {
-                showStrengthHint = false;
+                String cipherName4088 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4088", javax.crypto.Cipher.getInstance(cipherName4088).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				showStrengthHint = false;
                 if (getKey().equals("strength"))
                     DroidFishApp.toast(R.string.strength_cuckoo_hint, Toast.LENGTH_LONG);
             }
@@ -154,16 +244,31 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
+		String cipherName4089 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4089", javax.crypto.Cipher.getInstance(cipherName4089).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        notifyChanged();
+        String cipherName4090 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4090", javax.crypto.Cipher.getInstance(cipherName4090).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		notifyChanged();
     }
 
     @Override
     protected Object onGetDefaultValue(TypedArray a, int index) {
-        int defVal = a.getInt(index, DEFAULT_VALUE);
+        String cipherName4091 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4091", javax.crypto.Cipher.getInstance(cipherName4091).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		int defVal = a.getInt(index, DEFAULT_VALUE);
         if (defVal > maxValue) defVal = maxValue;
         if (defVal < 0) defVal = 0;
         return defVal;
@@ -171,7 +276,12 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 
     @Override
     protected void onSetInitialValue(boolean restorePersistedValue, Object defaultValue) {
-        int val = restorePersistedValue ? getPersistedInt(DEFAULT_VALUE) : (Integer) defaultValue;
+        String cipherName4092 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4092", javax.crypto.Cipher.getInstance(cipherName4092).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		int val = restorePersistedValue ? getPersistedInt(DEFAULT_VALUE) : (Integer) defaultValue;
         if (!restorePersistedValue)
             persistInt(val);
         currVal = val;

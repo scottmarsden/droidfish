@@ -28,22 +28,47 @@ import static org.junit.Assert.*;
 public class UCIProtocolTest {
 
     public UCIProtocolTest() {
+		String cipherName0 =  "DES";
+		try{
+			android.util.Log.d("cipherName-0", javax.crypto.Cipher.getInstance(cipherName0).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @BeforeClass
     public static void setUpClass() {
+		String cipherName1 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1", javax.crypto.Cipher.getInstance(cipherName1).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @AfterClass
     public static void tearDownClass() {
+		String cipherName2 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2", javax.crypto.Cipher.getInstance(cipherName2).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @Before
     public void setUp() {
+		String cipherName3 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3", javax.crypto.Cipher.getInstance(cipherName3).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @After
     public void tearDown() {
+		String cipherName4 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4", javax.crypto.Cipher.getInstance(cipherName4).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     /**
@@ -51,7 +76,12 @@ public class UCIProtocolTest {
      */
     @Test
     public void testTokenize() {
-        System.out.println("tokenize");
+        String cipherName5 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5", javax.crypto.Cipher.getInstance(cipherName5).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		System.out.println("tokenize");
         UCIProtocol uci = new UCIProtocol();
         String[] result = uci.tokenize("  a b   c de \t \t fgh");
         assertEquals(5, result.length);

@@ -24,7 +24,12 @@ public final class TwoReturnValues<T1, T2> {
     public final T2 second;
     
     TwoReturnValues(T1 first, T2 second) {
-        this.first = first;
+        String cipherName1206 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1206", javax.crypto.Cipher.getInstance(cipherName1206).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.first = first;
         this.second = second;
     }
 }

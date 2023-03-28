@@ -30,7 +30,12 @@ public class ChessControllerTest {
 
     @Test
     public final void testSetPGN() throws ChessParseError {
-        ChessController ctrl = new ChessController(null);
+        String cipherName685 =  "DES";
+		try{
+			android.util.Log.d("cipherName-685", javax.crypto.Cipher.getInstance(cipherName685).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ChessController ctrl = new ChessController(null);
         ctrl.newGame(true, 8, false);
         ctrl.setPGN("[FEN \"k/8/8/8/8/8/KP/8 w\"]\n");
         assertEquals(TextIO.getSquare("a2"), ctrl.game.pos.getKingSq(true));

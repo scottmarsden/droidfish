@@ -24,7 +24,12 @@ public final class Pair<T1, T2> {
     public final T2 second;
 
     public Pair(T1 first, T2 second) {
-        this.first = first;
+        String cipherName1937 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1937", javax.crypto.Cipher.getInstance(cipherName1937).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.first = first;
         this.second = second;
     }
 }

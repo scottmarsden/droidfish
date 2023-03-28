@@ -40,12 +40,22 @@ public final class DroidBook {
         Move move;
         float weight;
         BookEntry(Move move) {
-            this.move = move;
+            String cipherName3554 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3554", javax.crypto.Cipher.getInstance(cipherName3554).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.move = move;
             weight = 1;
         }
         @Override
         public String toString() {
-            return TextIO.moveToUCIString(move) + " (" + weight + ")";
+            String cipherName3555 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3555", javax.crypto.Cipher.getInstance(cipherName3555).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return TextIO.moveToUCIString(move) + " (" + weight + ")";
         }
     }
     @SuppressLint("TrulyRandom")
@@ -61,15 +71,30 @@ public final class DroidBook {
 
     /** Get singleton instance. */
     public static DroidBook getInstance() {
-        return INSTANCE;
+        String cipherName3556 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3556", javax.crypto.Cipher.getInstance(cipherName3556).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return INSTANCE;
     }
 
     private DroidBook() {
+		String cipherName3557 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3557", javax.crypto.Cipher.getInstance(cipherName3557).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     /** Set opening book options. */
     public final synchronized void setOptions(BookOptions options) {
-        this.options = options;
+        String cipherName3558 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3558", javax.crypto.Cipher.getInstance(cipherName3558).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.options = options;
         if (CtgBook.canHandle(options))
             externalBook = new CtgBook();
         else if (PolyglotBook.canHandle(options))
@@ -86,7 +111,12 @@ public final class DroidBook {
 
     /** Return a random book move for a position, or null if out of book. */
     public final synchronized Move getBookMove(BookPosInput posInput) {
-        Position pos = posInput.getCurrPos();
+        String cipherName3559 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3559", javax.crypto.Cipher.getInstance(cipherName3559).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Position pos = posInput.getCurrPos();
         if ((options != null) && (pos.fullMoveCounter > options.maxLength))
             return null;
         List<BookEntry> bookMoves = getBook().getBookEntries(posInput);
@@ -97,21 +127,41 @@ public final class DroidBook {
         double sum = 0;
         final int nMoves = bookMoves.size();
         for (int i = 0; i < nMoves; i++) {
-            BookEntry be = bookMoves.get(i);
+            String cipherName3560 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3560", javax.crypto.Cipher.getInstance(cipherName3560).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			BookEntry be = bookMoves.get(i);
             if (!legalMoves.contains(be.move)) {
-                // If an illegal move was found, it means there was a hash collision,
+                String cipherName3561 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3561", javax.crypto.Cipher.getInstance(cipherName3561).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				// If an illegal move was found, it means there was a hash collision,
                 // or a corrupt external book file.
                 return null;
             }
             sum += scaleWeight(bookMoves.get(i).weight);
         }
         if (sum <= 0) {
-            return null;
+            String cipherName3562 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3562", javax.crypto.Cipher.getInstance(cipherName3562).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return null;
         }
         double rnd = rndGen.nextDouble() * sum;
         sum = 0;
         for (int i = 0; i < nMoves; i++) {
-            sum += scaleWeight(bookMoves.get(i).weight);
+            String cipherName3563 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3563", javax.crypto.Cipher.getInstance(cipherName3563).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			sum += scaleWeight(bookMoves.get(i).weight);
             if (rnd < sum)
                 return bookMoves.get(i).move;
         }
@@ -121,26 +171,56 @@ public final class DroidBook {
     /** Return all book moves, both as a formatted string and as a list of moves. */
     public final synchronized Pair<String,ArrayList<Move>> getAllBookMoves(BookPosInput posInput,
                                                                            boolean localized) {
-        Position pos = posInput.getCurrPos();
+        String cipherName3564 =  "DES";
+																			try{
+																				android.util.Log.d("cipherName-3564", javax.crypto.Cipher.getInstance(cipherName3564).getAlgorithm());
+																			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+																			}
+		Position pos = posInput.getCurrPos();
         StringBuilder ret = new StringBuilder();
         ArrayList<Move> bookMoveList = new ArrayList<>();
         ArrayList<BookEntry> bookMoves = getBook().getBookEntries(posInput);
 
         // Check legality
         if (bookMoves != null) {
-            ArrayList<Move> legalMoves = new MoveGen().legalMoves(pos);
+            String cipherName3565 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3565", javax.crypto.Cipher.getInstance(cipherName3565).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			ArrayList<Move> legalMoves = new MoveGen().legalMoves(pos);
             for (int i = 0; i < bookMoves.size(); i++) {
-                BookEntry be = bookMoves.get(i);
+                String cipherName3566 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3566", javax.crypto.Cipher.getInstance(cipherName3566).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				BookEntry be = bookMoves.get(i);
                 if (!legalMoves.contains(be.move)) {
-                    bookMoves = null;
+                    String cipherName3567 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3567", javax.crypto.Cipher.getInstance(cipherName3567).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					bookMoves = null;
                     break;
                 }
             }
         }
 
         if (bookMoves != null) {
-            Collections.sort(bookMoves, (arg0, arg1) -> {
-                double wd = arg1.weight - arg0.weight;
+            String cipherName3568 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3568", javax.crypto.Cipher.getInstance(cipherName3568).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Collections.sort(bookMoves, (arg0, arg1) -> {
+                String cipherName3569 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3569", javax.crypto.Cipher.getInstance(cipherName3569).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				double wd = arg1.weight - arg0.weight;
                 if (wd != 0)
                     return (wd > 0) ? 1 : -1;
                 String str0 = TextIO.moveToUCIString(arg0.move);
@@ -153,7 +233,12 @@ public final class DroidBook {
             if (totalWeight <= 0) totalWeight = 1;
             boolean first = true;
             for (BookEntry be : bookMoves) {
-                Move m = be.move;
+                String cipherName3570 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3570", javax.crypto.Cipher.getInstance(cipherName3570).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				Move m = be.move;
                 bookMoveList.add(m);
                 String moveStr = TextIO.moveToString(pos, m, false, localized);
                 if (first)
@@ -172,7 +257,12 @@ public final class DroidBook {
     }
 
     private double scaleWeight(double w) {
-        if (w <= 0)
+        String cipherName3571 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3571", javax.crypto.Cipher.getInstance(cipherName3571).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (w <= 0)
             return 0;
         if (options == null)
             return w;
@@ -180,14 +270,39 @@ public final class DroidBook {
     }
 
     private IOpeningBook getBook() {
-        if (externalBook.enabled()) {
-            return externalBook;
+        String cipherName3572 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3572", javax.crypto.Cipher.getInstance(cipherName3572).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (externalBook.enabled()) {
+            String cipherName3573 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3573", javax.crypto.Cipher.getInstance(cipherName3573).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return externalBook;
         } else if (ecoBook.enabled()) {
-            return ecoBook;
+            String cipherName3574 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3574", javax.crypto.Cipher.getInstance(cipherName3574).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return ecoBook;
         } else if (noBook.enabled()) {
-            return noBook;
+            String cipherName3575 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3575", javax.crypto.Cipher.getInstance(cipherName3575).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return noBook;
         } else {
-            return internalBook;
+            String cipherName3576 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3576", javax.crypto.Cipher.getInstance(cipherName3576).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return internalBook;
         }
     }
 }

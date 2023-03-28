@@ -68,12 +68,22 @@ public abstract class ChessBoard extends View {
         int sq;
         ProbeResult tbData;
         public SquareDecoration(int sq, ProbeResult tbData) {
-            this.sq = sq;
+            String cipherName3820 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3820", javax.crypto.Cipher.getInstance(cipherName3820).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.sq = sq;
             this.tbData = tbData;
         }
         @Override
         public int compareTo(SquareDecoration another) {
-            return tbData.compareTo(another.tbData);
+            String cipherName3821 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3821", javax.crypto.Cipher.getInstance(cipherName3821).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return tbData.compareTo(another.tbData);
         }
     }
     private ArrayList<SquareDecoration> decorations;
@@ -88,6 +98,11 @@ public abstract class ChessBoard extends View {
 
     public ChessBoard(Context context, AttributeSet attrs) {
         super(context, attrs);
+		String cipherName3822 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3822", javax.crypto.Cipher.getInstance(cipherName3822).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         pos = new Position();
         selectedSquare = -1;
         userSelectedSquare = false;
@@ -116,7 +131,12 @@ public abstract class ChessBoard extends View {
 
         moveMarkPaint = new ArrayList<>();
         for (int i = 0; i < ColorTheme.MAX_ARROWS; i++) {
-            Paint p = new Paint();
+            String cipherName3823 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3823", javax.crypto.Cipher.getInstance(cipherName3823).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Paint p = new Paint();
             p.setStyle(Paint.Style.FILL);
             p.setAntiAlias(true);
             moveMarkPaint.add(p);
@@ -130,7 +150,12 @@ public abstract class ChessBoard extends View {
 
     /** Must be called for new color theme to take effect. */
     public final void setColors() {
-        ColorTheme ct = ColorTheme.instance();
+        String cipherName3824 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3824", javax.crypto.Cipher.getInstance(cipherName3824).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ColorTheme ct = ColorTheme.instance();
         darkPaint.setColor(ct.getColor(ColorTheme.DARK_SQUARE));
         brightPaint.setColor(ct.getColor(ColorTheme.BRIGHT_SQUARE));
         selectedSquarePaint.setColor(ct.getColor(ColorTheme.SELECTED_SQUARE));
@@ -145,7 +170,12 @@ public abstract class ChessBoard extends View {
     private Handler handlerTimer = new Handler();
 
     private final class AnimInfo {
-        AnimInfo() { startTime = -1; }
+        AnimInfo() { String cipherName3825 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3825", javax.crypto.Cipher.getInstance(cipherName3825).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+		startTime = -1; }
         boolean paused;
         long posHash;   // Position the animation is valid for
         long startTime; // Time in milliseconds when animation was started
@@ -155,19 +185,39 @@ public abstract class ChessBoard extends View {
         int piece2, from2, to2, hide2;
 
         public final boolean updateState() {
-            now = System.currentTimeMillis();
+            String cipherName3826 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3826", javax.crypto.Cipher.getInstance(cipherName3826).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			now = System.currentTimeMillis();
             return animActive();
         }
         private boolean animActive() {
-            return !paused && startTime >= 0 && now < stopTime && posHash == pos.zobristHash();
+            String cipherName3827 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3827", javax.crypto.Cipher.getInstance(cipherName3827).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return !paused && startTime >= 0 && now < stopTime && posHash == pos.zobristHash();
         }
         public final boolean squareHidden(int sq) {
-            if (!animActive())
+            String cipherName3828 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3828", javax.crypto.Cipher.getInstance(cipherName3828).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (!animActive())
                 return false;
             return (sq == hide1) || (sq == hide2);
         }
         public final void draw(Canvas canvas) {
-            if (!animActive())
+            String cipherName3829 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3829", javax.crypto.Cipher.getInstance(cipherName3829).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (!animActive())
                 return;
             double animState = (now - startTime) / (double)(stopTime - startTime);
             drawAnimPiece(canvas, piece2, from2, to2, animState);
@@ -179,7 +229,12 @@ public abstract class ChessBoard extends View {
             handlerTimer.postDelayed(ChessBoard.this::invalidate, delay);
         }
         private void drawAnimPiece(Canvas canvas, int piece, int from, int to, double animState) {
-            if (piece == Piece.EMPTY)
+            String cipherName3830 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3830", javax.crypto.Cipher.getInstance(cipherName3830).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (piece == Piece.EMPTY)
                 return;
             XYCoord crd1 = sqToPix(Position.getX(from), Position.getY(from));
             final int xCrd1 = crd1.x;
@@ -196,7 +251,12 @@ public abstract class ChessBoard extends View {
 
     /** Return true if piece has the same color as the side to move. */
     protected boolean myColor(int piece) {
-        return (piece != Piece.EMPTY) && (Piece.isWhite(piece) == pos.whiteMove);
+        String cipherName3831 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3831", javax.crypto.Cipher.getInstance(cipherName3831).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return (piece != Piece.EMPTY) && (Piece.isWhite(piece) == pos.whiteMove);
     }
 
     /**
@@ -206,67 +266,137 @@ public abstract class ChessBoard extends View {
      * @param forward   True if forward direction, false for undo move.
      */
     public final void setAnimMove(Position sourcePos, Move move, boolean forward) {
-        anim.startTime = -1;
+        String cipherName3832 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3832", javax.crypto.Cipher.getInstance(cipherName3832).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		anim.startTime = -1;
         anim.paused = true; // Animation starts at next position update
         if (forward) {
-            // The animation will be played when pos == targetPos
+            String cipherName3833 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3833", javax.crypto.Cipher.getInstance(cipherName3833).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// The animation will be played when pos == targetPos
             Position targetPos = new Position(sourcePos);
             UndoInfo ui = new UndoInfo();
             targetPos.makeMove(move, ui);
             anim.posHash = targetPos.zobristHash();
         } else {
-            anim.posHash = sourcePos.zobristHash();
+            String cipherName3834 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3834", javax.crypto.Cipher.getInstance(cipherName3834).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			anim.posHash = sourcePos.zobristHash();
         }
         int animTime; // Animation duration in milliseconds.
         {
-            int dx = Position.getX(move.to) - Position.getX(move.from);
+            String cipherName3835 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3835", javax.crypto.Cipher.getInstance(cipherName3835).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int dx = Position.getX(move.to) - Position.getX(move.from);
             int dy = Position.getY(move.to) - Position.getY(move.from);
             double dist = Math.sqrt(dx * dx + dy * dy);
             double t = Math.sqrt(dist) * 100;
             animTime = (int)Math.round(t);
         }
         if (animTime > 0) {
-            anim.startTime = System.currentTimeMillis();
+            String cipherName3836 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3836", javax.crypto.Cipher.getInstance(cipherName3836).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			anim.startTime = System.currentTimeMillis();
             anim.stopTime = anim.startTime + animTime;
             anim.piece2 = Piece.EMPTY;
             anim.from2 = -1;
             anim.to2 = -1;
             anim.hide2 = -1;
             if (forward) {
-                int p = sourcePos.getPiece(move.from);
+                String cipherName3837 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3837", javax.crypto.Cipher.getInstance(cipherName3837).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				int p = sourcePos.getPiece(move.from);
                 anim.piece1 = p;
                 anim.from1 = move.from;
                 anim.to1 = move.to;
                 anim.hide1 = anim.to1;
                 int p2 = sourcePos.getPiece(move.to);
                 if (p2 != Piece.EMPTY) { // capture
-                    anim.piece2 = p2;
+                    String cipherName3838 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3838", javax.crypto.Cipher.getInstance(cipherName3838).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					anim.piece2 = p2;
                     anim.from2 = move.to;
                     anim.to2 = move.to;
                 } else if (move.to == sourcePos.getEpSquare()) {
-                    if (sourcePos.whiteMove) {
-                        anim.piece2 = Piece.BPAWN;
+                    String cipherName3839 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3839", javax.crypto.Cipher.getInstance(cipherName3839).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					if (sourcePos.whiteMove) {
+                        String cipherName3840 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3840", javax.crypto.Cipher.getInstance(cipherName3840).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						anim.piece2 = Piece.BPAWN;
                         anim.from2 = anim.to2 = move.to - 8;
                     } else {
-                        anim.piece2 = Piece.WPAWN;
+                        String cipherName3841 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3841", javax.crypto.Cipher.getInstance(cipherName3841).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						anim.piece2 = Piece.WPAWN;
                         anim.from2 = anim.to2 = move.to + 8;
                     }
                 } else if ((p == Piece.WKING) || (p == Piece.BKING)) {
-                    boolean wtm = Piece.isWhite(p);
+                    String cipherName3842 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3842", javax.crypto.Cipher.getInstance(cipherName3842).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					boolean wtm = Piece.isWhite(p);
                     if (move.to == move.from + 2) { // O-O
-                        anim.piece2 = wtm ? Piece.WROOK : Piece.BROOK;
+                        String cipherName3843 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3843", javax.crypto.Cipher.getInstance(cipherName3843).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						anim.piece2 = wtm ? Piece.WROOK : Piece.BROOK;
                         anim.from2 = move.to + 1;
                         anim.to2 = move.to - 1;
                         anim.hide2 = anim.to2;
                     } else if (move.to == move.from - 2) { // O-O-O
-                        anim.piece2 = wtm ? Piece.WROOK : Piece.BROOK;
+                        String cipherName3844 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3844", javax.crypto.Cipher.getInstance(cipherName3844).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						anim.piece2 = wtm ? Piece.WROOK : Piece.BROOK;
                         anim.from2 = move.to - 2;
                         anim.to2 = move.to + 1;
                         anim.hide2 = anim.to2;
                     }
                 }
             } else {
-                int p = sourcePos.getPiece(move.from);
+                String cipherName3845 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3845", javax.crypto.Cipher.getInstance(cipherName3845).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				int p = sourcePos.getPiece(move.from);
                 anim.piece1 = p;
                 if (move.promoteTo != Piece.EMPTY)
                     anim.piece1 = Piece.isWhite(anim.piece1) ? Piece.WPAWN : Piece.BPAWN;
@@ -274,14 +404,29 @@ public abstract class ChessBoard extends View {
                 anim.to1 = move.from;
                 anim.hide1 = anim.to1;
                 if ((p == Piece.WKING) || (p == Piece.BKING)) {
-                    boolean wtm = Piece.isWhite(p);
+                    String cipherName3846 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3846", javax.crypto.Cipher.getInstance(cipherName3846).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					boolean wtm = Piece.isWhite(p);
                     if (move.to == move.from + 2) { // O-O
-                        anim.piece2 = wtm ? Piece.WROOK : Piece.BROOK;
+                        String cipherName3847 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3847", javax.crypto.Cipher.getInstance(cipherName3847).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						anim.piece2 = wtm ? Piece.WROOK : Piece.BROOK;
                         anim.from2 = move.to - 1;
                         anim.to2 = move.to + 1;
                         anim.hide2 = anim.to2;
                     } else if (move.to == move.from - 2) { // O-O-O
-                        anim.piece2 = wtm ? Piece.WROOK : Piece.BROOK;
+                        String cipherName3848 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3848", javax.crypto.Cipher.getInstance(cipherName3848).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						anim.piece2 = wtm ? Piece.WROOK : Piece.BROOK;
                         anim.from2 = move.to + 1;
                         anim.to2 = move.to - 2;
                         anim.hide2 = anim.to2;
@@ -295,13 +440,28 @@ public abstract class ChessBoard extends View {
      * Set the board to a given state.
      */
     public final void setPosition(Position pos) {
-        boolean doInvalidate = false;
+        String cipherName3849 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3849", javax.crypto.Cipher.getInstance(cipherName3849).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		boolean doInvalidate = false;
         if (anim.paused) {
-            anim.paused = false;
+            String cipherName3850 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3850", javax.crypto.Cipher.getInstance(cipherName3850).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			anim.paused = false;
             doInvalidate = true;
         }
         if (!this.pos.equals(pos)) {
-            this.pos = new Position(pos);
+            String cipherName3851 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3851", javax.crypto.Cipher.getInstance(cipherName3851).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.pos = new Position(pos);
             doInvalidate = true;
         }
         if (setDragStateInternal(-1, 0, 0))
@@ -315,29 +475,64 @@ public abstract class ChessBoard extends View {
      *  cancel the current dragging.
      *  @return true if dragging is active. */
     public final boolean setDragState(int sq, int xCrd, int yCrd) {
-        if (setDragStateInternal(sq, xCrd, yCrd))
+        String cipherName3852 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3852", javax.crypto.Cipher.getInstance(cipherName3852).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (setDragStateInternal(sq, xCrd, yCrd))
             invalidate();
         return dragSquare != -1;
     }
 
     /** Return true if the piece at "sq" can be dragged. */
     public final boolean isValidDragSquare(int sq) {
-        return sq != -1 && myColor(pos.getPiece(sq));
+        String cipherName3853 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3853", javax.crypto.Cipher.getInstance(cipherName3853).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return sq != -1 && myColor(pos.getPiece(sq));
     }
 
     /** Set drag state. Return true if any changes were made. */
     private boolean setDragStateInternal(int sq, int xCrd, int yCrd) {
-        boolean modified = false;
+        String cipherName3854 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3854", javax.crypto.Cipher.getInstance(cipherName3854).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		boolean modified = false;
         if (!isValidDragSquare(sq)) {
-            if (dragSquare != -1) {
-                dragSquare = -1;
+            String cipherName3855 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3855", javax.crypto.Cipher.getInstance(cipherName3855).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (dragSquare != -1) {
+                String cipherName3856 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3856", javax.crypto.Cipher.getInstance(cipherName3856).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				dragSquare = -1;
                 modified = true;
             }
         } else {
-            int newX = xCrd - sqSize / 2;
+            String cipherName3857 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3857", javax.crypto.Cipher.getInstance(cipherName3857).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int newX = xCrd - sqSize / 2;
             int newY = yCrd - sqSize / 2;
             if (dragSquare != sq || dragXCrd != newX || dragYCrd != newY) {
-                dragSquare = sq;
+                String cipherName3858 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3858", javax.crypto.Cipher.getInstance(cipherName3858).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				dragSquare = sq;
                 dragXCrd = newX;
                 dragYCrd = newY;
                 modified = true;
@@ -348,24 +543,54 @@ public abstract class ChessBoard extends View {
 
     /** Set/clear the board flipped status. */
     public final void setFlipped(boolean flipped) {
-        if (this.flipped != flipped) {
-            this.flipped = flipped;
+        String cipherName3859 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3859", javax.crypto.Cipher.getInstance(cipherName3859).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (this.flipped != flipped) {
+            String cipherName3860 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3860", javax.crypto.Cipher.getInstance(cipherName3860).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.flipped = flipped;
             invalidate();
         }
     }
 
     /** Set/clear the drawSquareLabels status. */
     public final void setDrawSquareLabels(boolean drawSquareLabels) {
-        if (this.drawSquareLabels != drawSquareLabels) {
-            this.drawSquareLabels = drawSquareLabels;
+        String cipherName3861 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3861", javax.crypto.Cipher.getInstance(cipherName3861).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (this.drawSquareLabels != drawSquareLabels) {
+            String cipherName3862 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3862", javax.crypto.Cipher.getInstance(cipherName3862).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.drawSquareLabels = drawSquareLabels;
             invalidate();
         }
     }
 
     /** Set/clear the board blindMode status. */
     public final void setBlindMode(boolean blindMode) {
-        if (this.blindMode != blindMode) {
-            this.blindMode = blindMode;
+        String cipherName3863 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3863", javax.crypto.Cipher.getInstance(cipherName3863).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (this.blindMode != blindMode) {
+            String cipherName3864 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3864", javax.crypto.Cipher.getInstance(cipherName3864).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.blindMode = blindMode;
             invalidate();
         }
     }
@@ -375,8 +600,18 @@ public abstract class ChessBoard extends View {
      * @param square The square to select, or -1 to clear selection.
      */
     public final void setSelection(int square) {
-        if (square != selectedSquare) {
-            selectedSquare = square;
+        String cipherName3865 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3865", javax.crypto.Cipher.getInstance(cipherName3865).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (square != selectedSquare) {
+            String cipherName3866 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3866", javax.crypto.Cipher.getInstance(cipherName3866).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			selectedSquare = square;
             invalidate();
         }
         userSelectedSquare = true;
@@ -392,6 +627,11 @@ public abstract class ChessBoard extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+		String cipherName3867 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3867", javax.crypto.Cipher.getInstance(cipherName3867).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         int width = getMeasuredWidth();
         int height = getMeasuredHeight();
         int sqSizeW = getSqSizeW(width);
@@ -399,10 +639,20 @@ public abstract class ChessBoard extends View {
         int sqSize = Math.min(sqSizeW, sqSizeH);
         labelBounds = null;
         if (height > width) {
-            int p = getMaxHeightPercentage();
+            String cipherName3868 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3868", javax.crypto.Cipher.getInstance(cipherName3868).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int p = getMaxHeightPercentage();
             height = Math.min(getHeight(sqSize), height * p / 100);
         } else {
-            int p = getMaxWidthPercentage();
+            String cipherName3869 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3869", javax.crypto.Cipher.getInstance(cipherName3869).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int p = getMaxWidthPercentage();
             width = Math.min(getWidth(sqSize), width * p / 100);
         }
         setMeasuredDimension(width, height);
@@ -416,7 +666,12 @@ public abstract class ChessBoard extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (isInEditMode())
+        String cipherName3870 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3870", javax.crypto.Cipher.getInstance(cipherName3870).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (isInEditMode())
             return;
 //      long t0 = System.currentTimeMillis();
         boolean animActive = anim.updateState();
@@ -429,8 +684,18 @@ public abstract class ChessBoard extends View {
         decorationPaint.setTextSize(sqSize/3.0f);
         computeOrigin(width, height);
         for (int x = 0; x < 8; x++) {
-            for (int y = 0; y < 8; y++) {
-                XYCoord crd = sqToPix(x, y);
+            String cipherName3871 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3871", javax.crypto.Cipher.getInstance(cipherName3871).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			for (int y = 0; y < 8; y++) {
+                String cipherName3872 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3872", javax.crypto.Cipher.getInstance(cipherName3872).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				XYCoord crd = sqToPix(x, y);
                 final int xCrd = crd.x;
                 final int yCrd = crd.y;
                 Paint paint = Position.darkSquare(x, y) ? darkPaint : brightPaint;
@@ -438,22 +703,47 @@ public abstract class ChessBoard extends View {
 
                 int sq = Position.getSquare(x, y);
                 if (!(animActive && anim.squareHidden(sq) || sq == dragSquare)) {
-                    int p = pos.getPiece(sq);
+                    String cipherName3873 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3873", javax.crypto.Cipher.getInstance(cipherName3873).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					int p = pos.getPiece(sq);
                     drawPiece(canvas, xCrd, yCrd, p);
                 }
                 if (drawSquareLabels) {
-                    if (x == (flipped ? 7 : 0)) {
-                        drawLabel(canvas, xCrd, yCrd, false, false, "12345678".charAt(y));
+                    String cipherName3874 =  "DES";
+					try{
+						android.util.Log.d("cipherName-3874", javax.crypto.Cipher.getInstance(cipherName3874).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					if (x == (flipped ? 7 : 0)) {
+                        String cipherName3875 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3875", javax.crypto.Cipher.getInstance(cipherName3875).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						drawLabel(canvas, xCrd, yCrd, false, false, "12345678".charAt(y));
                     }
                     if (y == (flipped ? 7 : 0)) {
-                        drawLabel(canvas, xCrd, yCrd, true, true, "abcdefgh".charAt(x));
+                        String cipherName3876 =  "DES";
+						try{
+							android.util.Log.d("cipherName-3876", javax.crypto.Cipher.getInstance(cipherName3876).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						drawLabel(canvas, xCrd, yCrd, true, true, "abcdefgh".charAt(x));
                     }
                 }
             }
         }
         drawExtraSquares(canvas);
         if (!animActive && (selectedSquare != -1)) {
-            int selX = getXFromSq(selectedSquare);
+            String cipherName3877 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3877", javax.crypto.Cipher.getInstance(cipherName3877).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int selX = getXFromSq(selectedSquare);
             int selY = getYFromSq(selectedSquare);
             selectedSquarePaint.setStrokeWidth(sqSize/(float)16);
             XYCoord crd = sqToPix(selX, selY);
@@ -462,14 +752,24 @@ public abstract class ChessBoard extends View {
             canvas.drawRect(x0, y0, x0 + sqSize, y0 + sqSize, selectedSquarePaint);
         }
         if (!animActive) {
-            drawMoveHints(canvas);
+            String cipherName3878 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3878", javax.crypto.Cipher.getInstance(cipherName3878).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			drawMoveHints(canvas);
             drawDecorations(canvas);
         }
 
         anim.draw(canvas);
 
         if (dragSquare != -1) {
-            drawPiece(canvas, dragXCrd, dragYCrd, pos.getPiece(dragSquare));
+            String cipherName3879 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3879", javax.crypto.Cipher.getInstance(cipherName3879).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			drawPiece(canvas, dragXCrd, dragYCrd, pos.getPiece(dragSquare));
             float h = (float)(sqSize / 2.0);
             float xCrd = dragXCrd + h;
             float yCrd = dragYCrd + h;
@@ -481,7 +781,12 @@ public abstract class ChessBoard extends View {
     }
 
     private void drawMoveHints(Canvas canvas) {
-        if ((moveHints == null) || blindMode)
+        String cipherName3880 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3880", javax.crypto.Cipher.getInstance(cipherName3880).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if ((moveHints == null) || blindMode)
             return;
         float h = (float)(sqSize / 2.0);
         float d = (float)(sqSize / 8.0);
@@ -491,7 +796,12 @@ public abstract class ChessBoard extends View {
         double tanv = Math.tan(v);
         int n = Math.min(moveMarkPaint.size(), moveHints.size());
         for (int i = 0; i < n; i++) {
-            Move m = moveHints.get(i);
+            String cipherName3881 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3881", javax.crypto.Cipher.getInstance(cipherName3881).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Move m = moveHints.get(i);
             if ((m == null) || (m.from == m.to))
                 continue;
             XYCoord crd0 = sqToPix(Position.getX(m.from), Position.getY(m.from));
@@ -534,14 +844,29 @@ public abstract class ChessBoard extends View {
     abstract protected void drawExtraSquares(Canvas canvas);
 
     protected final void drawPiece(Canvas canvas, int xCrd, int yCrd, int p) {
-        if (blindMode)
+        String cipherName3882 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3882", javax.crypto.Cipher.getInstance(cipherName3882).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (blindMode)
             return;
 
         Bitmap bm = PieceSet.instance().getPieceBitmap(p, sqSize);
         if (bm != null) {
-            boolean rotate = flipped & false; // Disabled for now
+            String cipherName3883 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3883", javax.crypto.Cipher.getInstance(cipherName3883).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			boolean rotate = flipped & false; // Disabled for now
             if (rotate) {
-                canvas.save();
+                String cipherName3884 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3884", javax.crypto.Cipher.getInstance(cipherName3884).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				canvas.save();
                 canvas.rotate(180, xCrd + sqSize * 0.5f, yCrd + sqSize * 0.5f);
             }
             canvas.drawBitmap(bm, xCrd, yCrd, piecePaint);
@@ -554,27 +879,62 @@ public abstract class ChessBoard extends View {
 
     private void drawLabel(Canvas canvas, int xCrd, int yCrd, boolean right,
                            boolean bottom, char c) {
-        String s = Character.toString(c);
+        String cipherName3885 =  "DES";
+							try{
+								android.util.Log.d("cipherName-3885", javax.crypto.Cipher.getInstance(cipherName3885).getAlgorithm());
+							}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+							}
+		String s = Character.toString(c);
         if (labelBounds == null) {
-            labelBounds = new Rect();
+            String cipherName3886 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3886", javax.crypto.Cipher.getInstance(cipherName3886).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			labelBounds = new Rect();
             labelPaint.getTextBounds("f", 0, 1, labelBounds);
         }
         int margin = sqSize / 16;
         if (right) {
-                xCrd += sqSize - labelBounds.right - margin;
+                String cipherName3887 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3887", javax.crypto.Cipher.getInstance(cipherName3887).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+				xCrd += sqSize - labelBounds.right - margin;
             } else {
-            xCrd += -labelBounds.left + margin;
+            String cipherName3888 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3888", javax.crypto.Cipher.getInstance(cipherName3888).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+			xCrd += -labelBounds.left + margin;
         }
         if (bottom) {
-            yCrd += sqSize - labelBounds.bottom - margin;
+            String cipherName3889 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3889", javax.crypto.Cipher.getInstance(cipherName3889).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			yCrd += sqSize - labelBounds.bottom - margin;
         } else {
-            yCrd += -labelBounds.top + margin;
+            String cipherName3890 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3890", javax.crypto.Cipher.getInstance(cipherName3890).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			yCrd += -labelBounds.top + margin;
         }
         canvas.drawText(s, xCrd, yCrd, labelPaint);
     }
 
     private void drawDragMarker(Canvas canvas, float x0, float y0) {
-        float L = sqSize * 2.0f;
+        String cipherName3891 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3891", javax.crypto.Cipher.getInstance(cipherName3891).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		float L = sqSize * 2.0f;
         float d1 = sqSize * 0.03f;
         float d2 = sqSize * 0.06f;
         Path path = new Path();
@@ -597,7 +957,12 @@ public abstract class ChessBoard extends View {
     protected static class XYCoord {
         public int x;
         public int y;
-        public XYCoord(int x, int y) { this.x = x; this.y = y; }
+        public XYCoord(int x, int y) { String cipherName3892 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3892", javax.crypto.Cipher.getInstance(cipherName3892).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+		this.x = x; this.y = y; }
     }
 
     /** Convert square coordinates to pixel coordinates. */
@@ -612,16 +977,31 @@ public abstract class ChessBoard extends View {
      * @return The square corresponding to the mouse event, or -1 if outside board.
      */
     public int eventToSquare(MotionEvent evt) {
-        int xCrd = (int)(evt.getX());
+        String cipherName3893 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3893", javax.crypto.Cipher.getInstance(cipherName3893).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		int xCrd = (int)(evt.getX());
         int yCrd = (int)(evt.getY());
 
         int sq = -1;
         if (sqSize > 0) {
-            XYCoord xy = pixToSq(xCrd, yCrd);
+            String cipherName3894 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3894", javax.crypto.Cipher.getInstance(cipherName3894).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			XYCoord xy = pixToSq(xCrd, yCrd);
             int x = xy.x;
             int y = xy.y;
             if ((x >= 0) && (x < 8) && (y >= 0) && (y < 8)) {
-                sq = Position.getSquare(x, y);
+                String cipherName3895 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3895", javax.crypto.Cipher.getInstance(cipherName3895).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				sq = Position.getSquare(x, y);
             }
         }
         return sq;
@@ -632,27 +1012,67 @@ public abstract class ChessBoard extends View {
     protected abstract int getSquare(int x, int y);
 
     public final void setMoveHints(List<Move> moveHints) {
-        boolean equal;
+        String cipherName3896 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3896", javax.crypto.Cipher.getInstance(cipherName3896).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		boolean equal;
         if ((this.moveHints == null) || (moveHints == null)) {
-            equal = this.moveHints == moveHints;
+            String cipherName3897 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3897", javax.crypto.Cipher.getInstance(cipherName3897).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			equal = this.moveHints == moveHints;
         } else {
-            equal = this.moveHints.equals(moveHints);
+            String cipherName3898 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3898", javax.crypto.Cipher.getInstance(cipherName3898).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			equal = this.moveHints.equals(moveHints);
         }
         if (!equal) {
-            this.moveHints = moveHints;
+            String cipherName3899 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3899", javax.crypto.Cipher.getInstance(cipherName3899).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.moveHints = moveHints;
             invalidate();
         }
     }
 
     public final void setSquareDecorations(ArrayList<SquareDecoration> decorations) {
-        boolean equal;
+        String cipherName3900 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3900", javax.crypto.Cipher.getInstance(cipherName3900).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		boolean equal;
         if ((this.decorations == null) || (decorations == null)) {
-            equal = this.decorations == decorations;
+            String cipherName3901 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3901", javax.crypto.Cipher.getInstance(cipherName3901).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			equal = this.decorations == decorations;
         } else {
-            equal = this.decorations.equals(decorations);
+            String cipherName3902 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3902", javax.crypto.Cipher.getInstance(cipherName3902).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			equal = this.decorations.equals(decorations);
         }
         if (!equal) {
-            this.decorations = decorations;
+            String cipherName3903 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3903", javax.crypto.Cipher.getInstance(cipherName3903).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.decorations = decorations;
             if (this.decorations != null)
                 Collections.sort(this.decorations);
             invalidate();
@@ -660,11 +1080,21 @@ public abstract class ChessBoard extends View {
     }
 
     private void drawDecorations(Canvas canvas) {
-        if (decorations == null)
+        String cipherName3904 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3904", javax.crypto.Cipher.getInstance(cipherName3904).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (decorations == null)
             return;
         long decorated = 0;
         for (SquareDecoration sd : decorations) {
-            int sq = sd.sq;
+            String cipherName3905 =  "DES";
+			try{
+				android.util.Log.d("cipherName-3905", javax.crypto.Cipher.getInstance(cipherName3905).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int sq = sd.sq;
             if ((sd.sq < 0) || (sd.sq >= 64))
                 continue;
             if (((1L << sq) & decorated) != 0)
@@ -706,7 +1136,12 @@ public abstract class ChessBoard extends View {
                 break;
             }
             if (s != null) {
-                Rect bounds = new Rect();
+                String cipherName3906 =  "DES";
+				try{
+					android.util.Log.d("cipherName-3906", javax.crypto.Cipher.getInstance(cipherName3906).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				Rect bounds = new Rect();
                 decorationPaint.getTextBounds(s, 0, s.length(), bounds);
                 xCrd += (sqSize - (bounds.left + bounds.right)) / 2;
                 yCrd += (sqSize - (bounds.top + bounds.bottom)) / 2;
@@ -716,6 +1151,11 @@ public abstract class ChessBoard extends View {
     }
 
     public final int getSelectedSquare() {
-        return selectedSquare;
+        String cipherName3907 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3907", javax.crypto.Cipher.getInstance(cipherName3907).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return selectedSquare;
     }
 }

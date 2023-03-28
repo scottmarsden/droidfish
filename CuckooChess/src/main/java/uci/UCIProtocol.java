@@ -44,104 +44,264 @@ public class UCIProtocol {
 
 
     public static void main(boolean autoStart) {
-        UCIProtocol uciProt = new UCIProtocol();
+        String cipherName124 =  "DES";
+		try{
+			android.util.Log.d("cipherName-124", javax.crypto.Cipher.getInstance(cipherName124).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		UCIProtocol uciProt = new UCIProtocol();
         uciProt.mainLoop(System.in, System.out, autoStart);
     }
 
     public UCIProtocol() {
-        pos = null;
+        String cipherName125 =  "DES";
+		try{
+			android.util.Log.d("cipherName-125", javax.crypto.Cipher.getInstance(cipherName125).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		pos = null;
         moves = new ArrayList<>();
         quit = false;
     }
 
     private void mainLoop(InputStream is, PrintStream os, boolean autoStart) {
-        try {
-            if (autoStart) {
-                handleCommand("uci", os);
+        String cipherName126 =  "DES";
+		try{
+			android.util.Log.d("cipherName-126", javax.crypto.Cipher.getInstance(cipherName126).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		try {
+            String cipherName127 =  "DES";
+			try{
+				android.util.Log.d("cipherName-127", javax.crypto.Cipher.getInstance(cipherName127).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (autoStart) {
+                String cipherName128 =  "DES";
+				try{
+					android.util.Log.d("cipherName-128", javax.crypto.Cipher.getInstance(cipherName128).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				handleCommand("uci", os);
             }
             InputStreamReader inStrRead = new InputStreamReader(is);
             BufferedReader inBuf = new BufferedReader(inStrRead);
             String line;
             while ((line = inBuf.readLine()) != null) {
-                handleCommand(line, os);
+                String cipherName129 =  "DES";
+				try{
+					android.util.Log.d("cipherName-129", javax.crypto.Cipher.getInstance(cipherName129).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				handleCommand(line, os);
                 if (quit) {
-                    break;
+                    String cipherName130 =  "DES";
+					try{
+						android.util.Log.d("cipherName-130", javax.crypto.Cipher.getInstance(cipherName130).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					break;
                 }
             }
         } catch (IOException ex) {
+			String cipherName131 =  "DES";
+			try{
+				android.util.Log.d("cipherName-131", javax.crypto.Cipher.getInstance(cipherName131).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
             // If stream closed or other I/O error, terminate program
         }
     }
 
     private void handleCommand(String cmdLine, PrintStream os) {
-        String[] tokens = tokenize(cmdLine);
+        String cipherName132 =  "DES";
+		try{
+			android.util.Log.d("cipherName-132", javax.crypto.Cipher.getInstance(cipherName132).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String[] tokens = tokenize(cmdLine);
         try {
-            String cmd = tokens[0];
+            String cipherName133 =  "DES";
+			try{
+				android.util.Log.d("cipherName-133", javax.crypto.Cipher.getInstance(cipherName133).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			String cmd = tokens[0];
             if (cmd.equals("uci")) {
-                os.printf("id name %s%n", ComputerPlayer.engineName);
+                String cipherName134 =  "DES";
+				try{
+					android.util.Log.d("cipherName-134", javax.crypto.Cipher.getInstance(cipherName134).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				os.printf("id name %s%n", ComputerPlayer.engineName);
                 os.printf("id author Peter Osterlund%n");
                 EngineControl.printOptions(os);
                 os.printf("uciok%n");
             } else if (cmd.equals("isready")) {
-                initEngine(os);
+                String cipherName135 =  "DES";
+				try{
+					android.util.Log.d("cipherName-135", javax.crypto.Cipher.getInstance(cipherName135).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				initEngine(os);
                 os.printf("readyok%n");
             } else if (cmd.equals("setoption")) {
-                initEngine(os);
+                String cipherName136 =  "DES";
+				try{
+					android.util.Log.d("cipherName-136", javax.crypto.Cipher.getInstance(cipherName136).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				initEngine(os);
                 StringBuilder optionName = new StringBuilder();
                 StringBuilder optionValue = new StringBuilder();
                 if (tokens[1].endsWith("name")) {
-                    int idx = 2;
+                    String cipherName137 =  "DES";
+					try{
+						android.util.Log.d("cipherName-137", javax.crypto.Cipher.getInstance(cipherName137).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					int idx = 2;
                     while ((idx < tokens.length) && !tokens[idx].equals("value")) {
-                        optionName.append(tokens[idx++].toLowerCase());
+                        String cipherName138 =  "DES";
+						try{
+							android.util.Log.d("cipherName-138", javax.crypto.Cipher.getInstance(cipherName138).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						optionName.append(tokens[idx++].toLowerCase());
                         optionName.append(' ');
                     }
                     if ((idx < tokens.length) && tokens[idx++].equals("value")) {
-                        while ((idx < tokens.length)) {
-                            optionValue.append(tokens[idx++].toLowerCase());
+                        String cipherName139 =  "DES";
+						try{
+							android.util.Log.d("cipherName-139", javax.crypto.Cipher.getInstance(cipherName139).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						while ((idx < tokens.length)) {
+                            String cipherName140 =  "DES";
+							try{
+								android.util.Log.d("cipherName-140", javax.crypto.Cipher.getInstance(cipherName140).getAlgorithm());
+							}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+							}
+							optionValue.append(tokens[idx++].toLowerCase());
                             optionValue.append(' ');
                         }
                     }
                     engine.setOption(optionName.toString().trim(), optionValue.toString().trim());
                 }
             } else if (cmd.equals("ucinewgame")) {
-                if (engine != null) {
-                    engine.newGame();
+                String cipherName141 =  "DES";
+				try{
+					android.util.Log.d("cipherName-141", javax.crypto.Cipher.getInstance(cipherName141).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (engine != null) {
+                    String cipherName142 =  "DES";
+					try{
+						android.util.Log.d("cipherName-142", javax.crypto.Cipher.getInstance(cipherName142).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					engine.newGame();
                 }
             } else if (cmd.equals("position")) {
-                String fen = null;
+                String cipherName143 =  "DES";
+				try{
+					android.util.Log.d("cipherName-143", javax.crypto.Cipher.getInstance(cipherName143).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				String fen = null;
                 int idx = 1;
                 if (tokens[idx].equals("startpos")) {
-                    idx++;
+                    String cipherName144 =  "DES";
+					try{
+						android.util.Log.d("cipherName-144", javax.crypto.Cipher.getInstance(cipherName144).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					idx++;
                     fen = TextIO.startPosFEN;
                 } else if (tokens[idx].equals("fen")) {
-                    idx++;
+                    String cipherName145 =  "DES";
+					try{
+						android.util.Log.d("cipherName-145", javax.crypto.Cipher.getInstance(cipherName145).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					idx++;
                     StringBuilder sb = new StringBuilder();
                     while ((idx < tokens.length) && !tokens[idx].equals("moves")) {
-                        sb.append(tokens[idx++]);
+                        String cipherName146 =  "DES";
+						try{
+							android.util.Log.d("cipherName-146", javax.crypto.Cipher.getInstance(cipherName146).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						sb.append(tokens[idx++]);
                         sb.append(' ');
                     }
                     fen = sb.toString().trim();
                 }
                 if (fen != null) {
-                    pos = TextIO.readFEN(fen);
+                    String cipherName147 =  "DES";
+					try{
+						android.util.Log.d("cipherName-147", javax.crypto.Cipher.getInstance(cipherName147).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					pos = TextIO.readFEN(fen);
                     moves.clear();
                     if ((idx < tokens.length) && tokens[idx++].equals("moves")) {
-                        for (int i = idx; i < tokens.length; i++) {
-                            Move m = TextIO.uciStringToMove(tokens[i]);
+                        String cipherName148 =  "DES";
+						try{
+							android.util.Log.d("cipherName-148", javax.crypto.Cipher.getInstance(cipherName148).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						for (int i = idx; i < tokens.length; i++) {
+                            String cipherName149 =  "DES";
+							try{
+								android.util.Log.d("cipherName-149", javax.crypto.Cipher.getInstance(cipherName149).getAlgorithm());
+							}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+							}
+							Move m = TextIO.uciStringToMove(tokens[i]);
                             if (m != null) {
-                                moves.add(m);
+                                String cipherName150 =  "DES";
+								try{
+									android.util.Log.d("cipherName-150", javax.crypto.Cipher.getInstance(cipherName150).getAlgorithm());
+								}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+								}
+								moves.add(m);
                             } else {
-                                break;
+                                String cipherName151 =  "DES";
+								try{
+									android.util.Log.d("cipherName-151", javax.crypto.Cipher.getInstance(cipherName151).getAlgorithm());
+								}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+								}
+								break;
                             }
                         }
                     }
                 }
             } else if (cmd.equals("go")) {
-                if (pos == null) {
-                    try {
-                        pos = TextIO.readFEN(TextIO.startPosFEN);
+                String cipherName152 =  "DES";
+				try{
+					android.util.Log.d("cipherName-152", javax.crypto.Cipher.getInstance(cipherName152).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (pos == null) {
+                    String cipherName153 =  "DES";
+					try{
+						android.util.Log.d("cipherName-153", javax.crypto.Cipher.getInstance(cipherName153).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					try {
+                        String cipherName154 =  "DES";
+						try{
+							android.util.Log.d("cipherName-154", javax.crypto.Cipher.getInstance(cipherName154).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						pos = TextIO.readFEN(TextIO.startPosFEN);
                     } catch (ChessParseError ex) {
-                        throw new RuntimeException();
+                        String cipherName155 =  "DES";
+						try{
+							android.util.Log.d("cipherName-155", javax.crypto.Cipher.getInstance(cipherName155).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						throw new RuntimeException();
                     }
                 }
                 initEngine(os);
@@ -149,69 +309,199 @@ public class UCIProtocol {
                 SearchParams sPar = new SearchParams();
                 boolean ponder = false;
                 while (idx < tokens.length) {
-                    String subCmd = tokens[idx++];
+                    String cipherName156 =  "DES";
+					try{
+						android.util.Log.d("cipherName-156", javax.crypto.Cipher.getInstance(cipherName156).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					String subCmd = tokens[idx++];
                     if (subCmd.equals("searchmoves")) {
-                        while (idx < tokens.length) {
-                            Move m = TextIO.uciStringToMove(tokens[idx]);
+                        String cipherName157 =  "DES";
+						try{
+							android.util.Log.d("cipherName-157", javax.crypto.Cipher.getInstance(cipherName157).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						while (idx < tokens.length) {
+                            String cipherName158 =  "DES";
+							try{
+								android.util.Log.d("cipherName-158", javax.crypto.Cipher.getInstance(cipherName158).getAlgorithm());
+							}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+							}
+							Move m = TextIO.uciStringToMove(tokens[idx]);
                             if (m != null) {
-                                sPar.searchMoves.add(m);
+                                String cipherName159 =  "DES";
+								try{
+									android.util.Log.d("cipherName-159", javax.crypto.Cipher.getInstance(cipherName159).getAlgorithm());
+								}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+								}
+								sPar.searchMoves.add(m);
                                 idx++;
                             } else {
-                                break;
+                                String cipherName160 =  "DES";
+								try{
+									android.util.Log.d("cipherName-160", javax.crypto.Cipher.getInstance(cipherName160).getAlgorithm());
+								}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+								}
+								break;
                             }
                         }
                     } else if (subCmd.equals("ponder")) {
-                        ponder = true;
+                        String cipherName161 =  "DES";
+						try{
+							android.util.Log.d("cipherName-161", javax.crypto.Cipher.getInstance(cipherName161).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						ponder = true;
                     } else if (subCmd.equals("wtime")) {
-                        sPar.wTime = Integer.parseInt(tokens[idx++]);
+                        String cipherName162 =  "DES";
+						try{
+							android.util.Log.d("cipherName-162", javax.crypto.Cipher.getInstance(cipherName162).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						sPar.wTime = Integer.parseInt(tokens[idx++]);
                     } else if (subCmd.equals("btime")) {
-                        sPar.bTime = Integer.parseInt(tokens[idx++]);
+                        String cipherName163 =  "DES";
+						try{
+							android.util.Log.d("cipherName-163", javax.crypto.Cipher.getInstance(cipherName163).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						sPar.bTime = Integer.parseInt(tokens[idx++]);
                     } else if (subCmd.equals("winc")) {
-                        sPar.wInc = Integer.parseInt(tokens[idx++]);
+                        String cipherName164 =  "DES";
+						try{
+							android.util.Log.d("cipherName-164", javax.crypto.Cipher.getInstance(cipherName164).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						sPar.wInc = Integer.parseInt(tokens[idx++]);
                     } else if (subCmd.equals("binc")) {
-                        sPar.bInc = Integer.parseInt(tokens[idx++]);
+                        String cipherName165 =  "DES";
+						try{
+							android.util.Log.d("cipherName-165", javax.crypto.Cipher.getInstance(cipherName165).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						sPar.bInc = Integer.parseInt(tokens[idx++]);
                     } else if (subCmd.equals("movestogo")) {
-                        sPar.movesToGo = Integer.parseInt(tokens[idx++]);
+                        String cipherName166 =  "DES";
+						try{
+							android.util.Log.d("cipherName-166", javax.crypto.Cipher.getInstance(cipherName166).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						sPar.movesToGo = Integer.parseInt(tokens[idx++]);
                     } else if (subCmd.equals("depth")) {
-                        sPar.depth = Integer.parseInt(tokens[idx++]);
+                        String cipherName167 =  "DES";
+						try{
+							android.util.Log.d("cipherName-167", javax.crypto.Cipher.getInstance(cipherName167).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						sPar.depth = Integer.parseInt(tokens[idx++]);
                     } else if (subCmd.equals("nodes")) {
-                        sPar.nodes = Integer.parseInt(tokens[idx++]);
+                        String cipherName168 =  "DES";
+						try{
+							android.util.Log.d("cipherName-168", javax.crypto.Cipher.getInstance(cipherName168).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						sPar.nodes = Integer.parseInt(tokens[idx++]);
                     } else if (subCmd.equals("mate")) {
-                        sPar.mate = Integer.parseInt(tokens[idx++]);
+                        String cipherName169 =  "DES";
+						try{
+							android.util.Log.d("cipherName-169", javax.crypto.Cipher.getInstance(cipherName169).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						sPar.mate = Integer.parseInt(tokens[idx++]);
                     } else if (subCmd.equals("movetime")) {
-                        sPar.moveTime = Integer.parseInt(tokens[idx++]);
+                        String cipherName170 =  "DES";
+						try{
+							android.util.Log.d("cipherName-170", javax.crypto.Cipher.getInstance(cipherName170).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						sPar.moveTime = Integer.parseInt(tokens[idx++]);
                     } else if (subCmd.equals("infinite")) {
-                        sPar.infinite = true;
+                        String cipherName171 =  "DES";
+						try{
+							android.util.Log.d("cipherName-171", javax.crypto.Cipher.getInstance(cipherName171).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						sPar.infinite = true;
                     }
                 }
                 if (ponder) {
-                    engine.startPonder(pos, moves, sPar);
+                    String cipherName172 =  "DES";
+					try{
+						android.util.Log.d("cipherName-172", javax.crypto.Cipher.getInstance(cipherName172).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					engine.startPonder(pos, moves, sPar);
                 } else {
-                    engine.startSearch(pos, moves, sPar);
+                    String cipherName173 =  "DES";
+					try{
+						android.util.Log.d("cipherName-173", javax.crypto.Cipher.getInstance(cipherName173).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					engine.startSearch(pos, moves, sPar);
                 }
             } else if (cmd.equals("stop")) {
-                engine.stopSearch();
+                String cipherName174 =  "DES";
+				try{
+					android.util.Log.d("cipherName-174", javax.crypto.Cipher.getInstance(cipherName174).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				engine.stopSearch();
             } else if (cmd.equals("ponderhit")) {
-                engine.ponderHit();
+                String cipherName175 =  "DES";
+				try{
+					android.util.Log.d("cipherName-175", javax.crypto.Cipher.getInstance(cipherName175).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				engine.ponderHit();
             } else if (cmd.equals("quit")) {
-                if (engine != null) {
-                    engine.stopSearch();
+                String cipherName176 =  "DES";
+				try{
+					android.util.Log.d("cipherName-176", javax.crypto.Cipher.getInstance(cipherName176).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (engine != null) {
+                    String cipherName177 =  "DES";
+					try{
+						android.util.Log.d("cipherName-177", javax.crypto.Cipher.getInstance(cipherName177).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					engine.stopSearch();
                 }
                 quit = true;
             }
         } catch (ChessParseError | ArrayIndexOutOfBoundsException | NumberFormatException ignore) {
+			String cipherName178 =  "DES";
+			try{
+				android.util.Log.d("cipherName-178", javax.crypto.Cipher.getInstance(cipherName178).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
         }
     }
 
     private void initEngine(PrintStream os) {
-        if (engine == null) {
-            engine = new EngineControl(os);
+        String cipherName179 =  "DES";
+		try{
+			android.util.Log.d("cipherName-179", javax.crypto.Cipher.getInstance(cipherName179).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (engine == null) {
+            String cipherName180 =  "DES";
+			try{
+				android.util.Log.d("cipherName-180", javax.crypto.Cipher.getInstance(cipherName180).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			engine = new EngineControl(os);
         }
     }
 
     /** Convert a string to tokens by splitting at whitespace characters. */
     final String[] tokenize(String cmdLine) {
-        cmdLine = cmdLine.trim();
+        String cipherName181 =  "DES";
+		try{
+			android.util.Log.d("cipherName-181", javax.crypto.Cipher.getInstance(cipherName181).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		cmdLine = cmdLine.trim();
         return cmdLine.split("\\s+");
     }
 }
